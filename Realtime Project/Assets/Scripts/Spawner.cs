@@ -8,7 +8,6 @@ public class Spawner : MonoBehaviour
     public GameObject enemy;
 
     public float spawnCooldown= 1f;
-
     private float lastSpawnTime = 0f;
 
     private Vector3 spawnLocation;
