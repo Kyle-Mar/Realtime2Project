@@ -481,8 +481,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206d4cd9015d65445bb595fc77ff84eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTarget: {fileID: 0}
   moveSpeed: 5
+  aggroRange: 15
 --- !u!1 &1989916952965676
 GameObject:
   m_ObjectHideFlags: 0
