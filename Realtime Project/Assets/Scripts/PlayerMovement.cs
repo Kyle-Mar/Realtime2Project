@@ -33,6 +33,11 @@ public class PlayerMovement : MonoBehaviour
     void Aim()
     {
         // It's flipped. Trust me.
+
+        if(Cursor.lockState == CursorLockMode.None)
+        {
+            return;
+        }
         
         yRot += Input.GetAxis("Mouse X") * MouseSensitivity;
         xRot -= Input.GetAxis("Mouse Y") * MouseSensitivity;
