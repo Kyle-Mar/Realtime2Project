@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 572666830}
   - component: {fileID: 572666832}
   - component: {fileID: 572666833}
+  - component: {fileID: 572666834}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -301,6 +302,22 @@ MonoBehaviour:
   PlayerBody: {fileID: 1611481300}
   MouseSensitivity: 5.64
   MoveSpeed: 5.91
+--- !u!114 &572666834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572666829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca833b630b67ee42a945449a8ba5fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerBody: {fileID: 1611481300}
+  TeslaTrap: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}
+  LaserTrap: {fileID: 477374775374876655, guid: 55c413ead517ac649991cd25376b46ad, type: 3}
+  SpikeTrap: {fileID: 7064032344713589796, guid: fc5f6e978fd28f34bb552ad994916258, type: 3}
 --- !u!1 &594074712
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +332,7 @@ GameObject:
   - component: {fileID: 594074713}
   m_Layer: 0
   m_Name: Floor [TEMP]
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
