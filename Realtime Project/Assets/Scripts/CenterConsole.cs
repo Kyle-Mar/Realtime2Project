@@ -5,6 +5,10 @@ using UnityEngine;
 public class CenterConsole : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
+    public delegate void GravityEventHandler();
+    public static event GravityEventHandler OnGravityFlip;
+
+
     void Start()
     {
         
@@ -20,5 +24,6 @@ public class CenterConsole : MonoBehaviour, IInteractable
     public void Interact()
     {
         Physics.gravity *= -1;
+        OnGravityFlip?.Invoke();
     }
 }
