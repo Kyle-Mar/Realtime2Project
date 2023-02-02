@@ -28,13 +28,10 @@ public class TileScript : MonoBehaviour
                 defaultColor = false;
             }
         }
-        else
+        else if (!defaultColor)
         {
-            if (!defaultColor)
-            {
-                GetComponent<MeshRenderer>().material = defaultMAT;
-                defaultColor = true;
-            }
+            GetComponent<MeshRenderer>().material = defaultMAT;
+            defaultColor = true;
         }
 
         // Default

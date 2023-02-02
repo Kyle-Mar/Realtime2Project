@@ -110,6 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5e6036237de21469d68cc3aaa4f863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFree: 0
+  isFree: 1
   lookedAt: 0
   greenMAT: {fileID: 2100000, guid: 9fb34329fd172534ab78d21c04159e1a, type: 2}

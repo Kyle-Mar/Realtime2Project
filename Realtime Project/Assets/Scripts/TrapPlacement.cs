@@ -19,7 +19,6 @@ public class TrapPlacement : MonoBehaviour
     void Update()
     {
         Ray ray = new Ray(PlayerBody.transform.position, PlayerBody.transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction);
         RaycastHit hitData;
         bool raycastCheck = Physics.Raycast(ray, out hitData, 4.0f);
 
@@ -78,4 +77,10 @@ public class TrapPlacement : MonoBehaviour
         }
         */
     }
+
+    void EvaluateRay(RaycastHit hitData)
+    {
+        //
+    }
+
 }
