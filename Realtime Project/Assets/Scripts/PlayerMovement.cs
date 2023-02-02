@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     void Aim()
     {
         // It's flipped. Trust me.
-
+        Debug.Log("AIMING");
         if(Cursor.lockState == CursorLockMode.None)
         {
             return;
