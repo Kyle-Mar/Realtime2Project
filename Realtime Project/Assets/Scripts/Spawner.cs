@@ -13,9 +13,16 @@ public class Spawner : MonoBehaviour
     private Vector3 spawnLocation;
     private Quaternion spawnRotation;
 
+    GameObject player;
+    GameObject controlPanel;
+
     private void Start()
     {
-        spawnLocation = gameObject.transform.GetChild(0).transform.position;
+        controlPanel = GameObject.Find("Control Panel");
+        player = GameObject.Find("Player");
+
+
+        spawnLocation = gameObject.transform.Find("SpawnLocation").transform.position;
         spawnRotation = Quaternion.Euler(0f, gameObject.transform.eulerAngles.y, 0f);
     }
 
@@ -31,5 +38,8 @@ public class Spawner : MonoBehaviour
     void SpawnAnEnemy()
     {
         GameObject newEnemy = Instantiate(enemy, spawnLocation, spawnRotation);
+        EnemyAI script = newEnemy.GetComponent<EnemyAI>();
+        script.player = player;
+        script.controlPanel = controlPanel;
     }
 }

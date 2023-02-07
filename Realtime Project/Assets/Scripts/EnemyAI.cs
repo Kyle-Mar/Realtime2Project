@@ -8,8 +8,9 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 3f;
     public float aggroRange = 30f;
 
-    private GameObject player;
-    private GameObject controlPanel;
+    public GameObject player;
+    public GameObject controlPanel;
+
     private GameObject moveTarget;
 
     private Vector3 targetPosition;
@@ -18,12 +19,15 @@ public class EnemyAI : MonoBehaviour
     private bool isAggro = false;
     void Start()
     {
-        controlPanel = GameObject.Find("Control Panel");
-        player = GameObject.Find("Player");
+        if(controlPanel == null || player == null)
+        {
+            Debug.LogError("Unresolved Reference in EnemyAi.cs");
+        }
+
         moveTarget = controlPanel;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(isAggro)
         {
@@ -62,8 +66,8 @@ public class EnemyAI : MonoBehaviour
         {
             isGrounded= true;
         }
+        //Vector3 direction = Vector3.up * Mathf.Sign(Physics.gravity.magnitude);
     }
-
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
