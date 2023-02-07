@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject Cam;
+    public PlayerAttack Attack;
     // We use a PlayerBody to separate the player from the Player's Body which has the camera.
     public GameObject PlayerBody;
     [Range(1f, 10f)]
@@ -33,8 +34,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void DoAction()
     {
-        // 0 is Left Mouse Button
         if (Input.GetMouseButtonDown(0))
+        {
+            Attack.Attack();
+        }
+        // 1 is Right Mouse Button
+        if (Input.GetMouseButtonDown(1))
         {
             LayerMask layerMask = ~LayerMask.GetMask("Player");
             RaycastHit hit;
@@ -48,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     void Aim()
     {
         // It's flipped. Trust me.
-        Debug.Log("AIMING");
+        //Debug.Log("AIMING");
         if(Cursor.lockState == CursorLockMode.None)
         {
             return;

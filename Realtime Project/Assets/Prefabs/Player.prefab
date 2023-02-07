@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1329999808627016119}
   - component: {fileID: 1329999808627016116}
   - component: {fileID: 7570694861319024373}
+  - component: {fileID: 1200535681620285068}
+  - component: {fileID: 680170548}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -111,6 +113,32 @@ MonoBehaviour:
   TeslaTrap: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}
   LaserTrap: {fileID: 6487175365304139287, guid: 93827198c6c06db4b8a86e710dcc841a, type: 3}
   SpikeTrap: {fileID: 7064032344713589796, guid: fc5f6e978fd28f34bb552ad994916258, type: 3}
+--- !u!114 &1200535681620285068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329999808627016107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16f3212563e35c489fe4963e3134365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtBox: {fileID: 680170548}
+--- !u!65 &680170548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329999808627016107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!1 &1329999808958921912
 GameObject:
   m_ObjectHideFlags: 0
