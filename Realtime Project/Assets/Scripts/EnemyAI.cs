@@ -8,8 +8,9 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 3f;
     public float aggroRange = 30f;
 
-    private GameObject player;
-    private GameObject controlPanel;
+    public GameObject player;
+    public GameObject controlPanel;
+
     private GameObject moveTarget;
 
     private Vector3 targetPosition;
@@ -18,13 +19,11 @@ public class EnemyAI : MonoBehaviour
     private bool isAggro = false;
     void Start()
     {
-        // This is suspect.
-        controlPanel = GameObject.Find("Control Panel");
-        player = GameObject.Find("Player");
         if(controlPanel == null || player == null)
         {
             Debug.LogError("Unresolved Reference in EnemyAi.cs");
         }
+
         moveTarget = controlPanel;
     }
 
