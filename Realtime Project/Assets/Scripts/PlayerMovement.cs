@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,11 +29,30 @@ public class PlayerMovement : MonoBehaviour
     {
         Aim();
         Move();
+        DoAction();
+    }
+    void DoAction()
+    {
+        // 0 is Left Mouse Button
+        if (Input.GetMouseButtonDown(0))
+        {
+            LayerMask layerMask = ~LayerMask.GetMask("Player");
+            RaycastHit hit;
+            if(Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, 5f, layerMask)){
+                IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+                interactable?.Interact();
+            }
+        }
     }
 
     void Aim()
     {
         // It's flipped. Trust me.
+
+        if(Cursor.lockState == CursorLockMode.None)
+        {
+            return;
+        }
         
         yRot += Input.GetAxis("Mouse X") * MouseSensitivity;
         xRot -= Input.GetAxis("Mouse Y") * MouseSensitivity;
