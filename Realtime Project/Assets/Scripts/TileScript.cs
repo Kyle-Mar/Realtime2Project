@@ -6,6 +6,7 @@ public class TileScript : MonoBehaviour
 {
     public bool isFree = true;
     public bool lookedAt = false;
+    public GameObject spawnPos;
     private bool defaultColor = true;
 
     public Material greenMAT;

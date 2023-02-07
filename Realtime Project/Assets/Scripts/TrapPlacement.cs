@@ -33,21 +33,25 @@ public class TrapPlacement : MonoBehaviour
                 //Debug.Log("Free Tile");
 
                 // Place Trap on Selected Tile
-                Vector3 trapLocation = new Vector3(thisTile.transform.position.x, 2.5f, thisTile.transform.position.z); // Only works on ground for now
+                //Vector3 trapLocation = new Vector3(thisTile.transform.position.x, 2.5f, thisTile.transform.position.z); // Only works on ground for now
+                Vector3 trapLocation = tileScript.spawnPos.transform.position;
+                float upDirection = 0.0f;
+                if (Physics.gravity.y > 0.0f) upDirection = 180.0f;
+                
 
                 if (Input.GetKeyDown("1"))
                 {
-                    Instantiate(TeslaTrap, trapLocation, Quaternion.Euler(0, 0, 0));
+                    Instantiate(TeslaTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
                     tileScript.isFree = false;
                 }
                 else if (Input.GetKeyDown("2"))
                 {
-                    Instantiate(LaserTrap, trapLocation, Quaternion.Euler(0, 0, 0));
+                    Instantiate(LaserTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
                     tileScript.isFree = false;
                 }
                 else if (Input.GetKeyDown("3"))
                 {
-                    Instantiate(SpikeTrap, trapLocation, Quaternion.Euler(0, 0, 0));
+                    Instantiate(SpikeTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
                     tileScript.isFree = false;
                 }
 
