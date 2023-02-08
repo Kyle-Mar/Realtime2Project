@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1329999808627016116}
   - component: {fileID: 7570694861319024373}
   - component: {fileID: 1200535681620285068}
-  - component: {fileID: 680170548}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -82,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 1329999808958921912}
+  Attack: {fileID: 0}
   PlayerBody: {fileID: 1329999809735717554}
   MouseSensitivity: 5.64
   MoveSpeed: 5.91
@@ -125,20 +125,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16f3212563e35c489fe4963e3134365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtBox: {fileID: 680170548}
---- !u!65 &680170548
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329999808627016107}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 1}
+  HurtBox: {fileID: 496197268306436083}
+  AttackCooldown: 2
+  AttackLength: 0.5
+  AttackDamage: 100
+  isAttacking: 0
 --- !u!1 &1329999808958921912
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1329999809735717555}
+  - component: {fileID: 496197268306436083}
   m_Layer: 3
   m_Name: PlayerBody
   m_TagString: Untagged
@@ -255,3 +247,16 @@ Transform:
   m_Father: {fileID: 1329999808627016105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &496197268306436083
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329999809735717554}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.92, y: 2, z: 1.76}
+  m_Center: {x: 0, y: 0, z: 1.05}

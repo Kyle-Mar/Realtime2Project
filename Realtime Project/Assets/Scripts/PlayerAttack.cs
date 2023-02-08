@@ -4,25 +4,43 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public Collider hurtBox;
+    public Collider HurtBox;
+    public float AttackCooldown = 2f;
+    public float AttackLength = .5f;
+    public float AttackDamage = 50f;
+    public bool isAttacking = false;
     // Start is called before the first frame update
     void Start()
     {
-        if (hurtBox == null)
+        if (HurtBox == null)
         {
             Debug.LogError("Unresolved Reference PlayerAttack.cs");
         }
-        hurtBox.enabled = false;
+        HurtBox.enabled = false;
     }
 
     public void Attack()
     {
-        hurtBox.enabled = true;
+        if (isAttacking)
+        {
+            return;
+        }
+        HurtBox.enabled = true;
+        StartCoroutine(AttackTimer());
     }
 
     void OnTriggerEnter(Collider other)
     {
-        other.gameObject.GetComponent<IDamageable>()?.Damage(10f);
+        Debug.Log(other.gameObject.name);
+        other.gameObject.GetComponent<IDamageable>()?.Damage(AttackDamage);
     }
 
-}
+    IEnumerator AttackTimer()
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(AttackLength);
+        HurtBox.enabled = false;
+        yield return new WaitForSeconds(AttackCooldown - AttackLength);
+        isAttacking = false;
+    }
+}   
