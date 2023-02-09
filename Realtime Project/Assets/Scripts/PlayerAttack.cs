@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public Collider HurtBox;
-    public float AttackCooldown = 2f;
-    public float AttackLength = .5f;
+    public float AttackCooldown = .5f;
+    public float AttackLength = .1f;
     public float AttackDamage = 50f;
     public bool isAttacking = false;
     // Start is called before the first frame update

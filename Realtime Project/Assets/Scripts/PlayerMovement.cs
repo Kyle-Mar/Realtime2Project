@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public float MouseSensitivity = 1;
     [Range(1f, 10f)]
     public float MoveSpeed = 1;
+    float CurrentSensitivity;
+    float AttackingSensitivity;
 
     Rigidbody rb;
 
@@ -23,11 +25,22 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        CurrentSensitivity = MouseSensitivity;
+        AttackingSensitivity = MouseSensitivity / 2;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Attack.isAttacking)
+        {
+            CurrentSensitivity = AttackingSensitivity;
+        }
+        else
+        {
+            CurrentSensitivity = MouseSensitivity;
+        }
         Aim();
         Move();
         DoAction();
@@ -59,8 +72,8 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         
-        yRot += Input.GetAxis("Mouse X") * MouseSensitivity;
-        xRot -= Input.GetAxis("Mouse Y") * MouseSensitivity;
+        yRot += Input.GetAxis("Mouse X") * CurrentSensitivity;
+        xRot -= Input.GetAxis("Mouse Y") * CurrentSensitivity;
         
         // Prevent the player from breaking their neck.
         xRot = Mathf.Clamp(xRot, -90f, 90f);
