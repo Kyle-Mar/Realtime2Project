@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : MonoBehaviour, IDamageable
 {
     public float moveSpeed = 3f;
     public float aggroRange = 30f;
@@ -17,6 +17,10 @@ public class EnemyAI : MonoBehaviour
 
     private bool isGrounded = false;
     private bool isAggro = false;
+
+    const float MAX_HEALTH = 100;
+    float health = MAX_HEALTH;
+
     void Start()
     {
         if(controlPanel == null || player == null)
@@ -73,6 +77,15 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+    }
+
+    public void Damage(float amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
