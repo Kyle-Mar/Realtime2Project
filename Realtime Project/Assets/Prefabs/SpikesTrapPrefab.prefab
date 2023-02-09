@@ -630,7 +630,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4863123480604807785}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -643,7 +643,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ffde4568132536478891f7f09930280, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -900,8 +900,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e17a4440ed5f84abb72e93c4b368a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapVariant: 0
+  trapVariant: 2
   hurtbox: {fileID: 4863123480604807785}
+  damage: 1
+  setDamageTimer: 1
 --- !u!1 &7554500876911044379
 GameObject:
   m_ObjectHideFlags: 0

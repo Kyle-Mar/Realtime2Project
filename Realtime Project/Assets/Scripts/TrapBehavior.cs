@@ -15,8 +15,9 @@ public class TrapBehavior : MonoBehaviour
     public GameObject hurtbox;
     public float damage = 1.0f;
 
-    public float setDamageTimer;
+    public float setDamageTimer = 5.0f;
     private float timer;
+    private bool dealDamage = false;
 
 
     void Start()
@@ -30,12 +31,18 @@ public class TrapBehavior : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            dealDamage();
+            dealDamage = true;
+            timer = setDamageTimer;
         }
     }
 
-    void dealDamage()
+    private void OnTriggerStay(Collider other)
     {
-
+        if (dealDamage)
+        {
+            Debug.Log("Dealing Damage");
+            other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+        }
+        
     }
 }

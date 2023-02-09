@@ -425,7 +425,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1573845568414397993}
   - component: {fileID: 5089711304608177498}
-  - component: {fileID: 5666056080592271700}
   - component: {fileID: 3749636059104672770}
   m_Layer: 0
   m_Name: TeslaTrapPrefab
@@ -482,19 +481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapVariant: 0
   hurtbox: {fileID: 6984325212811539565}
---- !u!135 &5666056080592271700
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2205845279299202195}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  damage: 1
+  setDamageTimer: 3
 --- !u!54 &3749636059104672770
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -975,7 +963,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6984325212811539565}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -988,7 +976,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ffde4568132536478891f7f09930280, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
