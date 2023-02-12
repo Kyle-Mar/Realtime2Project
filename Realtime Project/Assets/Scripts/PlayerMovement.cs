@@ -10,14 +10,10 @@ public class PlayerMovement : MonoBehaviour
     // We use a PlayerBody to separate the player from the Player's Body which has the camera.
     public GameObject PlayerBody;
     [Range(1f, 10f)]
-    public float MouseSensitivity = 1;
-    [Range(1f, 10f)]
     public float MoveSpeed = 1;
-    float CurrentSensitivity;
-    float AttackingSensitivity;
+
 
     Rigidbody rb;
-
     float xRot = 0f;
     float yRot = 0f;
 
@@ -25,45 +21,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        CurrentSensitivity = MouseSensitivity;
-        AttackingSensitivity = MouseSensitivity / 2;
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        if (Attack.isAttacking)
-        {
-            CurrentSensitivity = AttackingSensitivity;
-        }
-        else
-        {
-            CurrentSensitivity = MouseSensitivity;
-        }
-        Aim();
-        Move();
-        DoAction();
-    }
-    void DoAction()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Attack.Attack();
-        }
-        // 1 is Right Mouse Button
-        if (Input.GetMouseButtonDown(1))
-        {
-            LayerMask layerMask = ~LayerMask.GetMask("Player");
-            RaycastHit hit;
-            if(Physics.Raycast(Cam.transform.position, Cam.transform.forward, out hit, 5f, layerMask)){
-                IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-                interactable?.Interact();
-            }
-        }
-    }
-
-    void Aim()
+    public void Aim(Vector2 input)
     {
         // It's flipped. Trust me.
         //Debug.Log("AIMING");
@@ -71,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        
-        yRot += Input.GetAxis("Mouse X") * CurrentSensitivity;
-        xRot -= Input.GetAxis("Mouse Y") * CurrentSensitivity;
+
+        yRot += input[0];
+        xRot -= input[1];
         
         // Prevent the player from breaking their neck.
         xRot = Mathf.Clamp(xRot, -90f, 90f);
@@ -83,17 +44,16 @@ public class PlayerMovement : MonoBehaviour
         PlayerBody.transform.localRotation = Quaternion.Euler(PlayerBody.transform.rotation.x, yRot, PlayerBody.transform.rotation.z);
     }
 
-    void Move()
+    public void Move(Vector2 input)
     {
         Vector3 moveVector = Vector3.zero;
         
-        // Raw input. Otherwise Axis output is smoothed.
-        moveVector += Input.GetAxisRaw("Horizontal") * PlayerBody.transform.right;
-        moveVector += Input.GetAxisRaw("Vertical") * PlayerBody.transform.forward;
+        moveVector += input[0] * PlayerBody.transform.right;
+        moveVector += input[1] * PlayerBody.transform.forward;
 
         // So the player can't move faster by moving diagonally.
         moveVector.Normalize();
-        moveVector = moveVector * MoveSpeed;
+        moveVector *= MoveSpeed;
 
         // Don't ignore gravity
         moveVector.y = rb.velocity.y;
