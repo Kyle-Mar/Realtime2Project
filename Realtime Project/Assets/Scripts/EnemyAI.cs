@@ -93,7 +93,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         }
     }
 
-    void onCollisionStay(Collision other)
+    void OnCollisionStay(Collision other)
     {
         if (other.gameObject == player)
         {
