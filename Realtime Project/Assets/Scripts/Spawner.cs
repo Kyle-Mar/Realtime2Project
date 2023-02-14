@@ -18,8 +18,13 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        controlPanel = GameObject.Find("Control Panel");
+        controlPanel = GameObject.Find("Center Console");
         player = GameObject.Find("Player");
+
+        if(controlPanel == null || player == null)
+        {
+            Debug.LogError("Unresolved reference in Spawner.cs");
+        }
 
 
         spawnLocation = gameObject.transform.Find("SpawnLocation").transform.position;

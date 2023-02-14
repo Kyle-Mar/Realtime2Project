@@ -57,6 +57,29 @@ public class TrapPlacement : MonoBehaviour
 
             }
         }
+        //else Debug.Log("No Hit");
+
+
+
+
+        // Old Code
+        /*Vector3 playerPos = PlayerBody.transform.position;
+        Vector3 playerDirection = PlayerBody.transform.forward * 5.0f;
+        Vector3 trapLocation = new Vector3((int)(playerPos.x + playerDirection.x), 2.6f, (int)(playerPos.z + playerDirection.z));
+
+        if (Input.GetKeyDown("1"))
+        {
+            Instantiate(TeslaTrap, trapLocation, Quaternion.Euler(0,0,0));
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            Instantiate(LaserTrap, trapLocation, Quaternion.Euler(0, 0, 0));
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            Instantiate(SpikeTrap, trapLocation, Quaternion.Euler(0, 0, 0));
+        }
+        */
     }
 
     void EvaluateRay(RaycastHit hitData)

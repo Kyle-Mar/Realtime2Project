@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
             transform.position.y, 
             moveTarget.transform.position.z
             );
-        transform.LookAt(targetPosition, Vector3.up);
+        transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
