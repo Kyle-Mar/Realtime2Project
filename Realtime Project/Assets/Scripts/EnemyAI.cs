@@ -18,8 +18,11 @@ public class EnemyAI : MonoBehaviour, IDamageable
     private bool isGrounded = false;
     private bool isAggro = false;
 
-    const float MAX_HEALTH = 100;
+    public const float MAX_HEALTH = 100f;
     float health = MAX_HEALTH;
+
+    public const float STRENGTH = 1.0f;
+    IDamageable playerDamageScript;
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         {
             Debug.LogError("Unresolved Reference in EnemyAi.cs");
         }
+        playerDamageScript= player.GetComponent<IDamageable>();
 
         moveTarget = controlPanel;
     }
@@ -60,7 +64,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
             transform.position.y, 
             moveTarget.transform.position.z
             );
-        transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
+        transform.LookAt(targetPosition, Vector3.up);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
@@ -86,6 +90,14 @@ public class EnemyAI : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject == player)
+        {
+            playerDamageScript.Damage(STRENGTH);
         }
     }
 }

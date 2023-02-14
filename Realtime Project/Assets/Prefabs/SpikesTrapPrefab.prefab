@@ -756,6 +756,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7585094561906929310}
+  - component: {fileID: -355584643589275974}
+  - component: {fileID: 4080214934778794011}
   m_Layer: 0
   m_Name: SpikesTrapPrefab
   m_TagString: Untagged
@@ -789,6 +791,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-355584643589275974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064032344713589796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e17a4440ed5f84abb72e93c4b368a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapVariant: 2
+  hurtbox: {fileID: 0}
+  damage: 1
+  setDamageTimer: 5
+--- !u!65 &4080214934778794011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064032344713589796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 2, z: 3}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!1 &7554500876911044379
 GameObject:
   m_ObjectHideFlags: 0
