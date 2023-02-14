@@ -112,65 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerBody: {fileID: 1329999809735717554}
-  TeslaTrap: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}
-  LaserTrap: {fileID: 6487175365304139287, guid: 93827198c6c06db4b8a86e710dcc841a, type: 3}
-  SpikeTrap: {fileID: 7064032344713589796, guid: fc5f6e978fd28f34bb552ad994916258, type: 3}
---- !u!114 &1200535681620285068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329999808627016107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e16f3212563e35c489fe4963e3134365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HurtBox: {fileID: 496197268306436083}
-  AttackCooldown: 2
-  AttackLength: 0.5
-  AttackDamage: 100
-  isAttacking: 0
---- !u!114 &-2139423774149547620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329999808627016107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819f39bce8766f7418b20761f233f5d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Attack: {fileID: 1200535681620285068}
-  animator: {fileID: 6040828556205440187}
---- !u!114 &2197467359545783156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329999808627016107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 017198f5d4a152e46ba99204268e655d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7975828290373146949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329999808627016107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d50785b14f792874f84155f704622664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MouseSensitivity: 1
+  TeslaTrap: {fileID: 1780747943304073236, guid: de76979d2a77ea54987117bbe959e51c, type: 3}
+  LaserTrap: {fileID: 1780747943304073236, guid: de76979d2a77ea54987117bbe959e51c, type: 3}
+  SpikeTrap: {fileID: 1780747943304073236, guid: de76979d2a77ea54987117bbe959e51c, type: 3}
 --- !u!1 &1329999808958921912
 GameObject:
   m_ObjectHideFlags: 0
