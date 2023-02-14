@@ -38,7 +38,7 @@ public class TrapBehavior : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (dealDamage)
+        //if (dealDamage)
         {
             Debug.Log("Dealing Damage");
             other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
