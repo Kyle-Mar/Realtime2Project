@@ -33,6 +33,12 @@ public class EnemyAI : MonoBehaviour, IDamageable
         playerDamageScript= player.GetComponent<IDamageable>();
 
         moveTarget = controlPanel;
+        targetPosition = new Vector3(
+            moveTarget.transform.position.x,
+            transform.position.y,
+            moveTarget.transform.position.z
+            );
+        transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
     }
 
     void Update()
@@ -64,7 +70,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
             transform.position.y, 
             moveTarget.transform.position.z
             );
-        transform.LookAt(targetPosition, Vector3.up);
+        transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
