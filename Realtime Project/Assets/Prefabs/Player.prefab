@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerBody: {fileID: 1329999809735717554}
   TeslaTrap: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}
-  LaserTrap: {fileID: 6487175365304139287, guid: 93827198c6c06db4b8a86e710dcc841a, type: 3}
+  LaserTrap: {fileID: 8732645448548597851, guid: 4af2035164c347b41aeb1f94540d3930, type: 3}
   SpikeTrap: {fileID: 7064032344713589796, guid: fc5f6e978fd28f34bb552ad994916258, type: 3}
 --- !u!114 &1200535681620285068
 MonoBehaviour:
