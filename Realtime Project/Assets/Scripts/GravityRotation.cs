@@ -26,8 +26,8 @@ public class GravityRotation : MonoBehaviour
         }
     }
 
-    void RotateWithGravity()
+    void RotateWithGravity(Quaternion quat)
     {
-        futureRotation = transform.rotation * Quaternion.Euler(180, 0, 0);
+        futureRotation = transform.rotation * quat;
     }
 }

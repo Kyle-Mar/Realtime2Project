@@ -5,13 +5,14 @@ using UnityEngine;
 public class CenterConsole : MonoBehaviour, IInteractable
 {
     // Start is called before the first frame update
-    public delegate void GravityEventHandler();
+    public delegate void GravityEventHandler(Quaternion angle);
     public static event GravityEventHandler OnGravityFlip;
 
+    public Transform PlayerBodyTransform;
 
     void Start()
     {
-        
+        PlayerBodyTransform = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
     public void Interact()
     {
         Physics.gravity *= -1;
-        OnGravityFlip?.Invoke();
+        Quaternion quat = Quaternion.AngleAxis(180, PlayerBodyTransform.forward);
+        OnGravityFlip?.Invoke(quat);
     }
 }

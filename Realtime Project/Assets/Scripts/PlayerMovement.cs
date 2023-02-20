@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject PlayerBody;
     [Range(1f, 10f)]
     public float MoveSpeed = 1;
+    [Range(1f, 10f)]
+    public float MouseSensitivity = 1;
 
 
     Rigidbody rb;
@@ -33,9 +35,9 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        yRot += input[0];
-        xRot -= input[1];
-        
+        yRot += input[0]*MouseSensitivity;
+        xRot -= input[1]*MouseSensitivity;;
+
         // Prevent the player from breaking their neck.
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
