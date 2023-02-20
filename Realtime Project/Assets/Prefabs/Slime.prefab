@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  aggroRange: 30
+  aggroRange: 8
   player: {fileID: 0}
   controlPanel: {fileID: 0}
 --- !u!1 &1989916952965676

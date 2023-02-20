@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour, IDamageable
 {
     public float moveSpeed = 3f;
-    public float aggroRange = 30f;
+    public float aggroRange = 8f;
 
     public GameObject player;
     public GameObject controlPanel;
@@ -104,6 +104,10 @@ public class EnemyAI : MonoBehaviour, IDamageable
         if (other.gameObject == player)
         {
             playerDamageScript.Damage(STRENGTH);
+        }
+        else if (other.gameObject.CompareTag("Terminal"))
+        {
+            other.gameObject.GetComponent<IDamageable>().Damage(STRENGTH);
         }
     }
 }
