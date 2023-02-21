@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - TileUnit
   - Enemy
+  - Terminal
   layers:
   - Default
   - TransparentFX
