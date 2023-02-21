@@ -10,6 +10,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
 
     public Transform PlayerBodyTransform;
     Vector3 init = new Vector3(0,0,0);
+    Vector3 actual = new Vector3(0, 0, 0);
     float yRot = 0;
 
     void Start()
@@ -29,7 +30,8 @@ public class CenterConsole : MonoBehaviour, IInteractable
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * 1;
 
         yRot += mouseInput[0] * 1;
-        init = Quaternion.Euler(init.x, yRot, init.z) * init;
+        actual = Quaternion.Euler(init.x, yRot, init.z) * init;
+        Debug.DrawLine(PlayerBodyTransform.position, actual+PlayerBodyTransform.position, Color.blue, 10);
 
     }
     
@@ -37,7 +39,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
     public void Interact()
     {
         Physics.gravity *= -1;
-        Quaternion quat = Quaternion.AngleAxis(180, init);
+        Quaternion quat = Quaternion.AngleAxis(180, actual);
         OnGravityFlip?.Invoke(quat);
     }
 }
