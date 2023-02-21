@@ -5,8 +5,8 @@ using UnityEngine;
 public class GravityRotation : MonoBehaviour
 {
     // Start is called before the first frame update
-    Quaternion futureRotation;
-
+    Quaternion futureRotation = Quaternion.identity;
+    float timer;
     void Start()
     {
         CenterConsole.OnGravityFlip += RotateWithGravity;
@@ -20,10 +20,9 @@ public class GravityRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (futureRotation != null)
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, futureRotation, Mathf.Clamp(3f * Time.deltaTime, 0, 1));
-        }
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, futureRotation, .5f);
+        
     }
 
     void RotateWithGravity(Quaternion quat)
