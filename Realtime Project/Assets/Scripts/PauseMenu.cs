@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    bool isPaused = false;
-
+    static bool isPaused = false;
+    public static bool IsPaused { get => isPaused; set => isPaused = value; }
+    public GameObject menu;
 
     // Start is called before the first frame update
     void Start()
@@ -22,32 +23,31 @@ public class PauseMenu : MonoBehaviour
         #else
         if (Input.GetKeyDown(KeyCode.Escape))
         #endif
+        if (isPaused)
         {
-        isPaused = !isPaused;
-            if (isPaused)
-            {
-                Pause();
-            }
-            else
-            {
-                Unpause();
-            }
+            Unpause();
+        }
+        else
+        {
+            Pause();
         }
     }
 
-    void Pause()
+    public void Pause()
     {
+        isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0;
-
+        menu.SetActive(true);
     }
 
-    void Unpause()
+    public void Unpause()
     {
+        isPaused = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
+        menu.SetActive(false);
     }
-
 }

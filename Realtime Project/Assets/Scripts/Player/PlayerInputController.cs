@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerAttack))]
@@ -29,14 +31,17 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!PauseMenu.IsPaused)
         {
-            Attack.Attack();    
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack.Attack();
+            }
 
-        if (Input.GetMouseButtonDown(1)) 
-        {
-            Interact.Interact();
+            if (Input.GetMouseButtonDown(1))
+            {
+                Interact.Interact();
+            }
         }
 
         // State Machine would be too much work right now.
@@ -50,7 +55,6 @@ public class PlayerInputController : MonoBehaviour
             CurrentSensitivity = MouseSensitivity;
         }
 
-
         // Raw input. Otherwise Axis output is smoothed.
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         Movement.Move(input);
@@ -58,7 +62,6 @@ public class PlayerInputController : MonoBehaviour
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * CurrentSensitivity;
         Movement.Aim(mouseInput);
     }
-
     public void UpdateSensitivity(float newSensitivity)
     {
         MouseSensitivity = newSensitivity;
