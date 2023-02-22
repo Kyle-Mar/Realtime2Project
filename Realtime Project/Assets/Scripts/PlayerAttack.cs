@@ -31,7 +31,10 @@ public class PlayerAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        if (other.gameObject.CompareTag("Terminal"))
+        {
+            return;
+        }
         other.gameObject.GetComponent<IDamageable>()?.Damage(AttackDamage);
     }
 
