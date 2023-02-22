@@ -7615,7 +7615,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1329999808627016119, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
       propertyPath: MouseSensitivity
-      value: 1.62
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329999809735717555, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 496197268306436083, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
