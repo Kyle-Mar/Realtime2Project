@@ -14,9 +14,9 @@ public class PlayerInputController : MonoBehaviour
     PlayerInteract Interact;
     
     [Range(1f, 10f)]
-    public float MouseSensitivity = 1;
-
-    float CurrentSensitivity;
+    public float MouseSensitivity = 2;
+    [Range(1,10f)]
+    public static float CurrentSensitivity = 1;
     float AttackingSensitivity;
 
     // Start is called before the first frame update
