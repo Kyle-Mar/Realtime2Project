@@ -17,6 +17,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     private bool isGrounded = false;
     private bool isAggro = false;
+    private bool isBlue = false;
 
     public const float MAX_HEALTH = 100f;
     float health = MAX_HEALTH;
@@ -39,6 +40,10 @@ public class EnemyAI : MonoBehaviour, IDamageable
             moveTarget.transform.position.z
             );
         transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
+        if (gameObject.GetComponent<oppositeGravity>() != null)
+        {
+            isBlue = true;
+        }
     }
 
     void Update()
@@ -56,21 +61,34 @@ public class EnemyAI : MonoBehaviour, IDamageable
             moveTarget = player;
             isAggro = true;
         }
-        
+
+        Look();
+
         if(isGrounded)
         {
             Move();
         }
     }
 
-    void Move()
+    void Look()
     {
-        targetPosition= new Vector3(
+        targetPosition = new Vector3(
             moveTarget.transform.position.x,
-            transform.position.y, 
+            transform.position.y,
             moveTarget.transform.position.z
             );
-        transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
+        if (isBlue)
+        {
+            transform.LookAt(targetPosition, Vector3.up * Mathf.Sign(Physics.gravity.y));
+        }
+        else
+        {
+            transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
+        }
+    }
+
+    void Move()
+    {
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
