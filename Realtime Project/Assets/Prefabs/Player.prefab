@@ -88,7 +88,6 @@ MonoBehaviour:
   Attack: {fileID: 1200535681620285068}
   PlayerBody: {fileID: 1329999809735717554}
   MoveSpeed: 5.91
-  MouseSensitivity: 1
 --- !u!114 &1329999808627016116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50785b14f792874f84155f704622664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseSensitivity: 1
+  MouseSensitivity: 2.05
 --- !u!114 &7377455780507547989
 MonoBehaviour:
   m_ObjectHideFlags: 0
