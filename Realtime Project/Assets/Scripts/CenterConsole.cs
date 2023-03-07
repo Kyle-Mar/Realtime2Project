@@ -11,6 +11,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
     public Transform PlayerBodyTransform;
     Vector3 init = new Vector3(0,0,0);
     Vector3 actual = new Vector3(0, 0, 0);
+    bool isFlippable = true;
     float yRot = 0;
 
     void Start()
@@ -35,8 +36,21 @@ public class CenterConsole : MonoBehaviour, IInteractable
     // NOTE: THIS WILL CHANGE. WE WILL NEED TO OPEN A MENU TOO LATER DOWN THE LINE.
     public void Interact()
     {
+        if (!isFlippable)
+        {
+            return;
+        }
+        StartCoroutine(GravityCooldown());
         Physics.gravity *= -1;
         Quaternion quat = Quaternion.AngleAxis(180, actual);
         OnGravityFlip?.Invoke(quat);
     }
+
+    IEnumerator GravityCooldown()
+    {
+        isFlippable = false;
+        yield return new WaitForSeconds(1.5f);
+        isFlippable = true;
+    }
+
 }
