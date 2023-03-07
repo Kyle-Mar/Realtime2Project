@@ -1,17 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class ConsoleHealth : MonoBehaviour, IDamageable
+public class ConsoleHealth : Health
 {
-    public const float MAX_HEALTH = 100f;
-    float health = MAX_HEALTH;
-    public void Damage(float amount)
+    public override void Die()
     {
-        health -= amount;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Physics.gravity = new Vector3(0, -9.8f);
+        SceneManager.LoadScene("DeathScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
