@@ -280,8 +280,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1191441049632672314}
   - component: {fileID: 78845581326340958}
+  - component: {fileID: 8192883890942214860}
   m_Layer: 0
-  m_Name: PauseMenu
+  m_Name: CurrentMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,6 +317,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menu: {fileID: 7109354143386771522}
+--- !u!114 &8192883890942214860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191441049632672308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8583744c6a7427b43953d825fed633e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6837174251855833211
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +476,7 @@ GameObject:
   - component: {fileID: 3975322748345774621}
   - component: {fileID: 7217908513647018854}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
