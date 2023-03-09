@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public float MAX_HEALTH { get; } = 100f;
     public float health { get; set; }
 
-    public const float STRENGTH = 1.0f;
+    public const float STRENGTH = 0.5f;
     IDamageable playerDamageScript;
 
     void Start()
