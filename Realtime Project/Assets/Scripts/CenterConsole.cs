@@ -30,7 +30,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * PlayerInputController.CurrentSensitivity; ;
 
         yRot += mouseInput[0];
-        Debug.Log(PlayerInputController.CurrentSensitivity);
+        //Debug.Log(PlayerInputController.CurrentSensitivity);
         actual = Quaternion.Euler(init.x, yRot, init.z) * init;
         Debug.DrawLine(PlayerBodyTransform.position, actual+PlayerBodyTransform.position, Color.blue, 10);
 

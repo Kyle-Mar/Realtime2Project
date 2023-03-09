@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public abstract class Health : MonoBehaviour, IDamageable
 {
-    [SerializeField]
-    protected const float MAX_HEALTH = 100f;
-    [SerializeField]
-    protected float health = MAX_HEALTH;
+    public float MAX_HEALTH { get; } = 100f;
+    public float health { get; set; }
     public virtual void Damage(float amount)
     {
         health -= amount;
@@ -15,6 +14,11 @@ public abstract class Health : MonoBehaviour, IDamageable
         {
             Die();
         }
+    }
+    
+    void Awake()
+    {
+        health = MAX_HEALTH;
     }
 
     public virtual void Die()
