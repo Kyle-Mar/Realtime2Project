@@ -18,7 +18,7 @@ public class ConsoleHealth : Health, IDamageable
     public void Damage(float amount)
     {
         base.Damage(amount);
-        trueHealth = base.health
+        trueHealth = base.health;
 
         for (int i = 0; i < terminals.Length; i++)
         {
