@@ -2253,10 +2253,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 78845581326340958, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: menuObject
-      value: 
-      objectReference: {fileID: 516548090}
     - target: {fileID: 1191441049632672308, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
       propertyPath: m_Name
       value: CurrentMenu
@@ -2305,14 +2301,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8192883890942214860, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
---- !u!1 &516548090 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7109354143386771522, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-  m_PrefabInstance: {fileID: 516548089}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &521760709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2202614653920917658, guid: 4360c202ccab43041bd72845c6148648, type: 3}

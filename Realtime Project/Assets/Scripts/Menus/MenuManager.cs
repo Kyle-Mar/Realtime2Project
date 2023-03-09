@@ -18,6 +18,7 @@ public class MenuManager :MonoBehaviour
         {
             if (!isInitialized)
             {
+                Debug.Log("TEST");
                 Init();
             }
             return consoleMenu;
@@ -29,7 +30,6 @@ public class MenuManager :MonoBehaviour
         {
             if (!isInitialized)
             {
-                Debug.Log("NOT INITIALIZED");
                 Init();
             }
             //Debug.Log(pauseMenu);
@@ -52,20 +52,30 @@ public class MenuManager :MonoBehaviour
     {
         GameObject menuContainer = GameObject.Find("CurrentMenu");
         pauseMenu = menuContainer.GetComponent<PauseMenu>();
-        //consoleMenu = menuContainer.transform.Find("ConsoleMenu").GetComponent<ConsoleMenu>();
+        consoleMenu = menuContainer.GetComponent<ConsoleMenu>();
         isInitialized = true;
 
     }
 
     public static void OpenMenu(Menu menu)
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         if (activeMenu != null)
         {
-            activeMenu.IsActive = false;
+            CloseMenu(activeMenu);
         }
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         menu.IsActive = true;
         activeMenu = menu;
+        activeMenu.menuObject.SetActive(true);
+    }
+
+    public static void CloseMenu(Menu menu)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        menu.IsActive = false;
+        menu.menuObject.SetActive(false);
     }
 }

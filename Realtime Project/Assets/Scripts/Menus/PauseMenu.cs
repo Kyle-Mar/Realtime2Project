@@ -33,15 +33,11 @@ public class PauseMenu : Menu
     {
         MenuManager.OpenMenu(this);
         Time.timeScale = 0;
-        menuObject.SetActive(true);
     }
 
     public void Unpause()
     {
-        IsActive = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        MenuManager.CloseMenu(this);
         Time.timeScale = 1;
-        menuObject.SetActive(false);
     }
 }

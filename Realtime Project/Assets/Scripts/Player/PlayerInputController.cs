@@ -31,7 +31,7 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (MenuManager.PauseMenu.IsActive)
+        if (!MenuManager.ActiveMenu.IsActive)
         {
             if (Input.GetMouseButtonDown(0))
             {
