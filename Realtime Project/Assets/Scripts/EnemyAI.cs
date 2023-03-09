@@ -19,14 +19,16 @@ public class EnemyAI : MonoBehaviour, IDamageable
     private bool isAggro = false;
     private bool isBlue = false;
 
-    public const float MAX_HEALTH = 100f;
-    float health = MAX_HEALTH;
+    public float MAX_HEALTH { get; } = 100f;
+    public float health { get; set; }
 
     public const float STRENGTH = 1.0f;
     IDamageable playerDamageScript;
 
     void Start()
     {
+        health = MAX_HEALTH;
+
         if(controlPanel == null || player == null)
         {
             Debug.LogError("Unresolved Reference in EnemyAi.cs");
