@@ -10,6 +10,7 @@ public abstract class Health : MonoBehaviour, IDamageable
     public virtual void Damage(float amount)
     {
         health -= amount;
+        Debug.Log(health);
         if (health <= 0)
         {
             Die();

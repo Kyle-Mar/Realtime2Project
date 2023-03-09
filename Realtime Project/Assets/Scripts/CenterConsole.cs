@@ -10,7 +10,8 @@ public class CenterConsole : MonoBehaviour, IInteractable
 
     public Transform PlayerBodyTransform;
     Vector3 init = new Vector3(0,0,0);
-    Vector3 actual = new Vector3(0, 0, 0);
+    static Vector3 rotAxis = new Vector3(0, 0, 0);
+    bool isFlippable = true;
     float yRot = 0;
 
     void Start()
@@ -27,20 +28,33 @@ public class CenterConsole : MonoBehaviour, IInteractable
             return;
         }
 
-        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * PlayerInputController.CurrentSensitivity; ;
-
+        Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * PlayerInputController.CurrentSensitivity;
         yRot += mouseInput[0];
-        //Debug.Log(PlayerInputController.CurrentSensitivity);
-        actual = Quaternion.Euler(init.x, yRot, init.z) * init;
-        Debug.DrawLine(PlayerBodyTransform.position, actual+PlayerBodyTransform.position, Color.blue, 10);
-
+        rotAxis = Quaternion.Euler(init.x, yRot, init.z) * init;
     }
     
-    // NOTE: THIS WILL CHANGE. WE WILL NEED TO OPEN A MENU TOO LATER DOWN THE LINE.
     public void Interact()
     {
+        if (!isFlippable)
+        {
+            return;
+        }
+        StartCoroutine(GravityCooldown());
+        MenuManager.OpenMenu(MenuManager.ConsoleMenu);
+    }
+
+    public static void FlipGravity()
+    {
         Physics.gravity *= -1;
-        Quaternion quat = Quaternion.AngleAxis(180, actual);
+        Quaternion quat = Quaternion.AngleAxis(180, rotAxis);
         OnGravityFlip?.Invoke(quat);
     }
+
+    IEnumerator GravityCooldown()
+    {
+        isFlippable = false;
+        yield return new WaitForSeconds(1.5f);
+        isFlippable = true;
+    }
+
 }

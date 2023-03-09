@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
         xRot = Mathf.Clamp(xRot, -90f, 90f);
 
         // Only Change the specific values.
-        Cam.transform.localRotation = Quaternion.Euler(xRot, Cam.transform.rotation.y, Cam.transform.rotation.z);
-        PlayerBody.transform.localRotation = Quaternion.Euler(PlayerBody.transform.rotation.x, yRot, PlayerBody.transform.rotation.z);
+        Cam.transform.localRotation = Quaternion.Euler(xRot, Cam.transform.localRotation.y, Cam.transform.localRotation.z);
+        PlayerBody.transform.localRotation = Quaternion.Euler(PlayerBody.transform.localRotation.x, yRot, PlayerBody.transform.localRotation.z);
     }
 
     public void Move(Vector2 input)

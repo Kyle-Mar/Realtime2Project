@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Menu
 {
-    static bool isPaused = false;
-    public static bool IsPaused { get => isPaused; set => isPaused = value; }
-    public GameObject menu;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +19,7 @@ public class PauseMenu : MonoBehaviour
         #else
         if (Input.GetKeyDown(KeyCode.Escape))
         #endif
-        if (isPaused)
+        if (IsActive)
         {
             Unpause();
         }
@@ -35,19 +31,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        isPaused = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        MenuManager.OpenMenu(this);
         Time.timeScale = 0;
-        menu.SetActive(true);
     }
 
     public void Unpause()
     {
-        isPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        MenuManager.CloseMenu(this);
         Time.timeScale = 1;
-        menu.SetActive(false);
     }
 }
