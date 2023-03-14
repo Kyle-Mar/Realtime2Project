@@ -11,13 +11,18 @@ public class EnemySpawnRange : MonoBehaviour
     private float height;
     private float spacing = 4.0f;
 
-    public int numToSpawn = 0;
+    public int numToSpawn = 1;
     public List<Vector3> spawnerPositionsList = new List<Vector3>();
     private List<GameObject> spawnersList = new List<GameObject>();
 
     public bool isActive = true;
+    private bool activeWave = false;
 
     private bool spawnSpawnerBool = true; // tmp for debug
+
+    // Debug Wave System
+    public float waveTimer = 0.0f;
+    private float setWaveTimer = 10.0f;
     
 
     void Start()
@@ -61,13 +66,26 @@ public class EnemySpawnRange : MonoBehaviour
 
     void Update()
     {
-        if (spawnSpawnerBool)
+        waveTimer += Time.deltaTime;
+        if (waveTimer >= setWaveTimer)
         {
-            SpawnSpawners(numToSpawn);
-            spawnSpawnerBool=false;
+            if (!activeWave)
+            {
+                activeWave = true;
+                UnpauseSpawners();
+                SpawnSpawners(numToSpawn);
+                //numToSpawn += 1;
+                waveTimer = 0.0f;
+            }
+            else
+            {
+                activeWave = false;
+                PauseSpawners();
+                waveTimer = 0.0f;
+            }
+            
         }
 
-        PauseSpawners();
     }
 
     void SpawnSpawners(int numToCreate)
