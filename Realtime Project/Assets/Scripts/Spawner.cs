@@ -13,6 +13,8 @@ public class Spawner : MonoBehaviour
     private Vector3 spawnLocation;
     private Quaternion spawnRotation;
 
+    public bool isActive = true;
+
     GameObject player;
     GameObject controlPanel;
 
@@ -33,7 +35,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if (lastSpawnTime + spawnCooldown < Time.time)
+        if (lastSpawnTime + spawnCooldown < Time.time && isActive)
         {
             SpawnAnEnemy();
             lastSpawnTime= Time.time;

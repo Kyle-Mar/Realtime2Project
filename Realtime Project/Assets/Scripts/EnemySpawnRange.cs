@@ -10,7 +10,12 @@ public class EnemySpawnRange : MonoBehaviour
     private float width;
     private float height;
     private float spacing = 4.0f;
-    public List<Vector3> spawnerList = new List<Vector3>();
+
+    public int numToSpawn = 0;
+    public List<Vector3> spawnerPositionsList = new List<Vector3>();
+    private List<GameObject> spawnersList = new List<GameObject>();
+
+    public bool isActive = true;
 
     private bool spawnSpawnerBool = true; // tmp for debug
     
@@ -34,22 +39,22 @@ public class EnemySpawnRange : MonoBehaviour
                 {
                     case 0:
                     {
-                        spawnerList.Add(new Vector3(corner.transform.position.x - w, corner.transform.position.y - h, corner.transform.position.z + 1.0f));
+                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x - w, corner.transform.position.y - h, corner.transform.position.z + 1.0f));
                         break;
                     }
                     case 90:
                     {
-                        spawnerList.Add(new Vector3(corner.transform.position.x + 1.0f, corner.transform.position.y - h, corner.transform.position.z + w));
+                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x + 1.0f, corner.transform.position.y - h, corner.transform.position.z + w));
                         break;
                     }
                     case 180:
                     {
-                        spawnerList.Add(new Vector3(corner.transform.position.x + w, corner.transform.position.y - h, corner.transform.position.z - 1.0f));
+                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x + w, corner.transform.position.y - h, corner.transform.position.z - 1.0f));
                         break;
                     }
                     case 270:
                     {
-                        spawnerList.Add(new Vector3(corner.transform.position.x - 1.0f, corner.transform.position.y - h, corner.transform.position.z - w));
+                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x - 1.0f, corner.transform.position.y - h, corner.transform.position.z - w));
                         break;
                     }
     }   }   }   }
@@ -58,17 +63,45 @@ public class EnemySpawnRange : MonoBehaviour
     {
         if (spawnSpawnerBool)
         {
-            SpawnSpawners(3);
+            SpawnSpawners(numToSpawn);
             spawnSpawnerBool=false;
-    }   }
+        }
+
+        PauseSpawners();
+    }
 
     void SpawnSpawners(int numToCreate)
     {
         for (int num = numToCreate; num > 0; num--)
         {
-            int rand = Random.Range(0, spawnerList.Count-1);
-            Vector3 spawnerPos = spawnerList[rand];
+            int rand = Random.Range(0, spawnerPositionsList.Count-1);
+            Vector3 spawnerPos = spawnerPositionsList[rand];
             GameObject newSpawner = Instantiate(spawnerPrefab, spawnerPos, transform.rotation);
-            spawnerList.Remove(spawnerPos);
+            spawnersList.Add(newSpawner);
+            spawnerPositionsList.Remove(spawnerPos);
     }   }
+
+    void PauseSpawners()
+    {
+        if (isActive)
+        {
+            foreach (GameObject spawner in spawnersList)
+            {
+                spawner.GetComponent<Spawner>().isActive = false;
+            }
+            isActive = false;
+        }
+    }
+
+    void UnpauseSpawners()
+    {
+        if (!isActive)
+        {
+            foreach (GameObject spawner in spawnersList)
+            {
+                spawner.GetComponent<Spawner>().isActive = true;
+            }
+        }
+        isActive = true;
+    }
 }
