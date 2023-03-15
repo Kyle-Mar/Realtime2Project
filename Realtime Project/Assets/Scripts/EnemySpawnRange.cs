@@ -6,6 +6,7 @@ public class EnemySpawnRange : MonoBehaviour
 {
     public GameObject corner;
     public GameObject enemy;
+    public GameObject blueEnemy;
     public GameObject spawnerPrefab;
     private float width;
     private float height;
@@ -92,9 +93,21 @@ public class EnemySpawnRange : MonoBehaviour
     {
         for (int num = numToCreate; num > 0; num--)
         {
+            // Create spawner
             int rand = Random.Range(0, spawnerPositionsList.Count-1);
             Vector3 spawnerPos = spawnerPositionsList[rand];
             GameObject newSpawner = Instantiate(spawnerPrefab, spawnerPos, transform.rotation);
+
+            // Set enemy to spawn
+            rand = Random.Range(1, 5);
+            switch (rand)
+            {
+                case 1:
+                    newSpawner.GetComponent<Spawner>().enemy = blueEnemy;
+                    break;
+            }
+
+            // Ad to list
             spawnersList.Add(newSpawner);
             spawnerPositionsList.Remove(spawnerPos);
     }   }

@@ -113,8 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   corner: {fileID: 5885561770042671941}
   enemy: {fileID: 1919012471076396, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
+  blueEnemy: {fileID: 1919012471076396, guid: 42dfdd3bfe4ab774bb86e5f77f4a375c, type: 3}
   spawnerPrefab: {fileID: 100000, guid: 15550a3757e40234dbc8b71bfa36a67a, type: 3}
-  spawnerList: []
+  numToSpawn: 1
+  spawnerPositionsList: []
+  isActive: 1
+  waveTimer: 0
 --- !u!1 &5885561770042671941
 GameObject:
   m_ObjectHideFlags: 0
