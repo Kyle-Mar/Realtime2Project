@@ -18,7 +18,6 @@ public class MenuManager :MonoBehaviour
         {
             if (!isInitialized)
             {
-                Debug.Log("TEST");
                 Init();
             }
             return consoleMenu;
@@ -62,6 +61,11 @@ public class MenuManager :MonoBehaviour
         if (activeMenu != null)
         {
             CloseMenu(activeMenu);
+        }
+
+        if(activeMenu == null)
+        {
+            Init();
         }
         
         Cursor.lockState = CursorLockMode.None;
