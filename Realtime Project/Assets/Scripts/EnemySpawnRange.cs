@@ -12,18 +12,14 @@ public class EnemySpawnRange : MonoBehaviour
     private float height;
     private float spacing = 4.0f;
 
-    public int numToSpawn = 1;
     public List<Vector3> spawnerPositionsList = new List<Vector3>();
     private List<GameObject> spawnersList = new List<GameObject>();
 
     public bool isActive = true;
-    private bool activeWave = false;
 
     private bool spawnSpawnerBool = true; // tmp for debug
 
-    // Debug Wave System
-    public float waveTimer = 0.0f;
-    private float setWaveTimer = 10.0f;
+
     
 
     void Start()
@@ -65,31 +61,34 @@ public class EnemySpawnRange : MonoBehaviour
                     }
     }   }   }   }
 
-    void Update()
-    {
-        waveTimer += Time.deltaTime;
-        if (waveTimer >= setWaveTimer)
-        {
-            if (!activeWave)
-            {
-                activeWave = true;
-                UnpauseSpawners();
-                SpawnSpawners(numToSpawn);
-                //numToSpawn += 1;
-                waveTimer = 0.0f;
-            }
-            else
-            {
-                activeWave = false;
-                PauseSpawners();
-                waveTimer = 0.0f;
-            }
+    //void Update()
+    //{
+    //    waveTimer += Time.deltaTime;
+
+    //    if (waveTimer >= setWaveTimer)
+    //    {
+    //        // Beginning of New Wave
+
+
+    //        if (!activeWave)
+    //        {
+    //            activeWave = true;
+    //            UnpauseSpawners();
+    //            SpawnSpawners(numToSpawn);
+    //            //numToSpawn += 1;
+    //        }
+    //        else
+    //        {
+    //            activeWave = false;
+    //            PauseSpawners();
+    //        }
+    //        waveTimer = 0.0f;
             
-        }
+    //    }
 
-    }
+    //}
 
-    void SpawnSpawners(int numToCreate)
+    public void SpawnSpawners(int numToCreate)
     {
         for (int num = numToCreate; num > 0; num--)
         {
@@ -112,7 +111,7 @@ public class EnemySpawnRange : MonoBehaviour
             spawnerPositionsList.Remove(spawnerPos);
     }   }
 
-    void PauseSpawners()
+    public void PauseSpawners()
     {
         if (isActive)
         {
@@ -124,7 +123,7 @@ public class EnemySpawnRange : MonoBehaviour
         }
     }
 
-    void UnpauseSpawners()
+    public void UnpauseSpawners()
     {
         if (!isActive)
         {
