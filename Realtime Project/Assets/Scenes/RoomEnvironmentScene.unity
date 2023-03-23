@@ -2064,42 +2064,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 383684163, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 383684163, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 383684164, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 791989869, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 791989869, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 791989870, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635560033, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635560033, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635560034, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 1024
-      objectReference: {fileID: 0}
+    - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
+      propertyPath: availableShopItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f489936a081a0b43b03aa7773061d02, type: 2}
+    - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
+      propertyPath: availableShopItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e03c7db31e683547be2782442a82c09, type: 2}
+    - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
+      propertyPath: availableShopItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 23298f20ffbb1d44daba8986a583e052, type: 2}
     - target: {fileID: 1191441049632672308, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
       propertyPath: m_Name
       value: CurrentMenu
