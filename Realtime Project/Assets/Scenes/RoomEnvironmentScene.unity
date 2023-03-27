@@ -180,6 +180,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+--- !u!1 &1151715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1329999808627016107, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+  m_PrefabInstance: {fileID: 1151714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1151716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6537d3c4df7004f9bc695aea856c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsText: {fileID: 502788594508850777}
 --- !u!1 &22821017
 GameObject:
   m_ObjectHideFlags: 0
@@ -7821,6 +7839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4795326331528365935, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
+      propertyPath: m_text
+      value: 'Coins: '
+      objectReference: {fileID: 0}
     - target: {fileID: 5085182797329280280, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
       propertyPath: m_text
       value: 
@@ -7919,6 +7941,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
+--- !u!114 &502788594508850777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4795326331528365935, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
+  m_PrefabInstance: {fileID: 502788594508850776}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2202614654702579027
 PrefabInstance:
   m_ObjectHideFlags: 0
