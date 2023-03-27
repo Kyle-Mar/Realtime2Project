@@ -36,7 +36,8 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("PLAYER");
+            PlayerInventory.numCoins++;
+            Destroy(gameObject);
         }
     }
 }
