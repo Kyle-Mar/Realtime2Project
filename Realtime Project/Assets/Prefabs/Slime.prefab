@@ -498,6 +498,7 @@ MonoBehaviour:
   aggroRange: 8
   player: {fileID: 0}
   controlPanel: {fileID: 0}
+  coin: {fileID: 3810766643529017866, guid: f70125ef7b0a9f14a8885e2bddc8e633, type: 3}
 --- !u!1 &1989916952965676
 GameObject:
   m_ObjectHideFlags: 0

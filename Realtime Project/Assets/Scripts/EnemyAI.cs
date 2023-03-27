@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     public GameObject player;
     public GameObject controlPanel;
+    public GameObject coin;
 
     private GameObject moveTarget;
 
@@ -115,6 +116,11 @@ public class EnemyAI : MonoBehaviour, IDamageable
         health -= amount;
         if (health <= 0)
         {
+            Vector3 spawnPos = new Vector3(transform.position.x,
+                                           transform.position.y + 0.75f * Mathf.Sign(-Physics.gravity.y), //add or subtract based on the gravity to avoid spawning the coins in the ground
+                                                                                                          //The enemies position is at the bottom of the enemy. This is a dirty fix.
+                                           transform.position.z);
+            Instantiate(coin, spawnPos, Quaternion.identity);
             Destroy(gameObject);
         }
     }
