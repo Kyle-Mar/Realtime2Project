@@ -31,7 +31,6 @@ public class MenuManager :MonoBehaviour
             {
                 Init();
             }
-            //Debug.Log(pauseMenu);
             return pauseMenu;
         }
     }

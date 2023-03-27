@@ -30,7 +30,7 @@ public class ConsoleMenu : Menu
     }
 
     public void RerollTraps() 
-    { 
+    {
         foreach (Slot slot in slots)
         {
             TrapShopItem newTrap = selectNewTrap();

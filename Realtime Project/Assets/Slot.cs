@@ -7,12 +7,10 @@ using System.Linq;
 
 public class Slot : MonoBehaviour
 {
-    [SerializeField]
-    private Image image;
-    [SerializeField]
-    private TMPro.TMP_Text text;
+    public Image image;
+    public TMPro.TMP_Text text;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         image = gameObject.GetComponentsInChildren<Image>()
             .Where(x => x.transform.parent != transform.parent).ToList()[0];
@@ -28,6 +26,7 @@ public class Slot : MonoBehaviour
 
     public void UpdateSlot(Sprite sprite, string str)
     {
+
         text.text = str;
         image.sprite = sprite;
     }
