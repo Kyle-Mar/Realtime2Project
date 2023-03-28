@@ -7839,6 +7839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4057854339483986439, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6da1078fe7181004da5f5d7c45043988, type: 3}
     - target: {fileID: 4795326331528365935, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
       propertyPath: m_text
       value: 'Coins: '
@@ -7846,6 +7850,10 @@ PrefabInstance:
     - target: {fileID: 5085182797329280280, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5178580753719686011, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
+      propertyPath: m_Name
+      value: HUD_Timer
       objectReference: {fileID: 0}
     - target: {fileID: 7200846387165390236, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
       propertyPath: m_Pivot.x

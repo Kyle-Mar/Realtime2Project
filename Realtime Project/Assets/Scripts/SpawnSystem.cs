@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnSystem : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class SpawnSystem : MonoBehaviour
     private bool activeWave = false;
 
     EnemySpawnRange[] children;
+    GameObject HUD;
     HUD_Text HUD_text_script;
+    Image timerImage;
 
     private void Start()
     {
         children = GetComponentsInChildren<EnemySpawnRange>();
-        HUD_text_script = GameObject.Find("HUD").GetComponent<HUD_Text>();
+        HUD = GameObject.Find("HUD");
+        HUD_text_script = HUD.GetComponent<HUD_Text>();
+        timerImage = GameObject.Find("HUD_Timer").GetComponent<Image>();
     }
 
 
@@ -50,5 +55,17 @@ public class SpawnSystem : MonoBehaviour
             }
             waveTimer = 0.0f;
         }
+
+        //Cory Timer HUD stuff down here
+        if (activeWave)
+        {
+            float amount = (setWaveTimer - waveTimer) / setWaveTimer;
+            if (amount < 0)
+            {
+                amount = 0;
+            }
+            timerImage.fillAmount = amount;
+        }
+
     }
 }
