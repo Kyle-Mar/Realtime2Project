@@ -7,7 +7,7 @@ public class ConsoleMenu : Menu
 {
     // Start is called before the first frame update
     public Slot[] slots;
-    public TrapShopItem[] availableShopItems = new TrapShopItem[3];
+    public TrapItem[] availableShopItems = new TrapItem[3];
     System.Random rnd = new System.Random();
 
     void Start()
@@ -33,12 +33,12 @@ public class ConsoleMenu : Menu
     {
         foreach (Slot slot in slots)
         {
-            TrapShopItem newTrap = selectNewTrap();
+            TrapItem newTrap = selectNewTrap();
             slot.UpdateSlot(newTrap.image, newTrap.itemName);
         }
     }
 
-    private TrapShopItem selectNewTrap() 
+    private TrapItem selectNewTrap() 
     {
         int randIndex = rnd.Next(0, availableShopItems.Length);
         return availableShopItems[randIndex];
