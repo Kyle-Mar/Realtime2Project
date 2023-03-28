@@ -16,32 +16,73 @@ public class TrapBehavior : MonoBehaviour
     public float damage = 1.0f;
 
     public float setDamageTimer = 5.0f;
-    private float timer;
-    private bool dealDamage = false;
+    private float damageTimer;
+    //private bool dealDamage = false;
+
+    public int numTargetsTotal = 10;
+    private int numTargetsHit = 0;
 
 
     void Start()
     {
-        timer = setDamageTimer;
+        damageTimer = setDamageTimer;
     }
 
     void Update()
     {
         // Deal damage
-        timer -= Time.deltaTime;
-        if (timer < 0)
+        damageTimer -= Time.deltaTime;
+        /*
+        if (damageTimer < 0)
         {
             dealDamage = true;
-            timer = setDamageTimer;
-        }
+            damageTimer = setDamageTimer;
+        }*/
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        // If able to hit more enemies
+        if (numTargetsHit < numTargetsTotal)
         {
-            Debug.Log("Dealing Damage");
-            other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                if (damageTimer < 0)
+                {
+                    //dealDamage = true;
+                    damageTimer = setDamageTimer;
+                    other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+                }
+
+                // OLD CODE PLEASE IGNORE
+
+                //Debug.Log("Dealing Damage");
+                /*switch (trapVariant)
+                {
+                    case trapType.Tesla:
+                        {
+                            // Zap three enemies every pulse
+                            if (damageTimer < 0)
+                            {
+                                //dealDamage = true;
+                                damageTimer = setDamageTimer;
+                                other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+                            }
+                            break;
+                        }
+                    case trapType.Laser:
+                        {
+
+                            break;
+                        }
+                    case trapType.Spike:
+                        {
+
+                            break;
+                        }
+                }*/
+
+            }
         }
     }
 }
