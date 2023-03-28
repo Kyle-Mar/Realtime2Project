@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using TMPro;
 public class PlayerInventory : MonoBehaviour
 {
     public static float numCoins = 0;
     public TMP_Text coinsText;
     List<InventorySlot> inventory = new List<InventorySlot>();
-    const MAX_ITEMS_PER_TYPE = 5;
-    const MAX_ITEMS = 3;
+    const int MAX_ITEMS_PER_TYPE = 5;
+    const int MAX_ITEMS = 3;
+    public TrapItem testItem;
 
     // Start is called before the first frame update
     void Start()
@@ -19,55 +21,71 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L)){
+            foreach (var item in inventory)
+            {
+                Debug.Log(item.count + item.item.name);
+            }
+
+        }
         coinsText.text = "Coins: " + numCoins.ToString();
     }
 
     public void AddItem(TrapItem itemToAdd)
     {
-        if(inventory.Count + 1 > MAX_ITEMS)
+        if(inventory.Count> MAX_ITEMS)
         {
             return;
         }
+        int index = 0;
 
-        foreach(InventorySlot iSlot in inventory)
+        foreach(InventorySlot iSlot in inventory.ToArray())
         {
             if(iSlot.item == itemToAdd)
             {
-                if(iSlot < MAX_ITEMS_PER_TYPE + 1)
+                if(iSlot.count < MAX_ITEMS_PER_TYPE)
                 {
-                    iSlot.count++;
+                    inventory[index].count++;
+                    return;
+                }
+                else
+                {
+                    return;
                 }
             }
-            else
-            {
-                InventorySlot newSlot = new();
-                newSlot.item = itemToAdd;
-                newSlot.count = 1;
-            }
+            index++;
         }
+        InventorySlot newSlot = new();
+        newSlot.item = itemToAdd;
+        newSlot.count = 1;
+        inventory.Add(newSlot);
     }
 
     public void RemoveItem(TrapItem itemToRemove)
     {
+        int index = 0;
         foreach(InventorySlot iSlot in inventory)
         {
             if(iSlot.item == itemToRemove)
             {
                 if(iSlot.count - 1 <= 0)
                 {
-                    inventory.Remove(iSlot);1`
+                    inventory.Remove(iSlot);
+                    return;
                 }
                 else
                 {
-                    iSlot.count--;
+                    inventory[index].count--;
+                    return;
                 }
             }
+            index++;
         }
     }
 }
 
-public struct InventorySlot
+public class InventorySlot
 {
-    TrapItem item;
-    int count;
+    public TrapItem item;
+    public int count;
 }

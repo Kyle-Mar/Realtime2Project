@@ -770,7 +770,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1060790184}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 642051545}
+        m_TargetAssemblyTypeName: ConsoleMenu, Assembly-CSharp
+        m_MethodName: PurchaseItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 29173812966726054}
+          m_ObjectArgumentAssemblyTypeName: Slot, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &29173812966726054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,7 +1055,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1622051470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 642051545}
+        m_TargetAssemblyTypeName: ConsoleMenu, Assembly-CSharp
+        m_MethodName: PurchaseItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 733466497983063441}
+          m_ObjectArgumentAssemblyTypeName: Slot, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &733466497983063441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,7 +1475,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1867913813}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 642051545}
+        m_TargetAssemblyTypeName: ConsoleMenu, Assembly-CSharp
+        m_MethodName: PurchaseItem
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 6619992323176121428}
+          m_ObjectArgumentAssemblyTypeName: Slot, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6619992323176121428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,6 +1850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuObject: {fileID: 896225601}
+  playerInventory: {fileID: 0}
   slots: []
   availableShopItems:
   - {fileID: 0}

@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinsText: {fileID: 502788594508850777}
+  testItem: {fileID: 11400000, guid: 3f489936a081a0b43b03aa7773061d02, type: 2}
 --- !u!1 &22821017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2083,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1151716}
     - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
       propertyPath: availableShopItems.Array.data[0]
       value: 
