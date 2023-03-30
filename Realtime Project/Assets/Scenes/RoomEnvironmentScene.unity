@@ -199,6 +199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsText: {fileID: 502788594508850777}
   testItem: {fileID: 11400000, guid: 3f489936a081a0b43b03aa7773061d02, type: 2}
+  canvasObject: {fileID: 1238768954}
+  inventoryHudIcon: {fileID: 8472031634865989820, guid: 2bbe290e8fa0dd3448b9cb09e7a4bdd5, type: 3}
 --- !u!1 &22821017
 GameObject:
   m_ObjectHideFlags: 0
@@ -7939,6 +7941,10 @@ PrefabInstance:
     - target: {fileID: 8391462009610457614, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842733836197694184, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8842733836197694184, guid: e52259949fb498a4d9bf02ff22a76011, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
