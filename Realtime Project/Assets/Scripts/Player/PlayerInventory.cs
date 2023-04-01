@@ -71,7 +71,7 @@ public class PlayerInventory : MonoBehaviour
         return true;
     }
 
-    public void RemoveItem(TrapItem itemToRemove)
+    public bool RemoveItem(TrapItem itemToRemove)
     {
         int index = 0;
         foreach(InventorySlot iSlot in inventory)
@@ -82,16 +82,42 @@ public class PlayerInventory : MonoBehaviour
                 {
                     inventory.Remove(iSlot);
                     DrawInventory();
-                    return;
+                    return true;
                 }
                 else
                 {
                     inventory[index].count--;
                     DrawInventory();
-                    return;
+                    return true;
                 }
             }
             index++;
+        }
+        return false;
+    }
+
+    public bool RemoveItem(int idx)
+    {
+        if(idx < 0)
+        {
+            return false;
+        }
+        if(idx > inventory.Count)
+        {
+            return false;
+        }
+        InventorySlot slot = inventory[idx];
+        if(slot.count -1 <= 0)
+        {
+            inventory.RemoveAt(idx);
+            DrawInventory();
+            return true;
+        }
+        else
+        {
+            inventory[idx].count--;
+            DrawInventory();
+            return true;
         }
     }
 
