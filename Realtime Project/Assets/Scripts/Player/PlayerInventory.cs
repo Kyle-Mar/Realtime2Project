@@ -28,13 +28,6 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)){
-            foreach (var item in inventory)
-            {
-                Debug.Log(item.count + item.item.name);
-            }
-
-        }
         coinsText.text = "Coins: " + numCoins.ToString();
     }
 
@@ -153,7 +146,6 @@ public class PlayerInventory : MonoBehaviour
             inventoryIcons.Add(iconObject);
 
         }
-
 
 
     }

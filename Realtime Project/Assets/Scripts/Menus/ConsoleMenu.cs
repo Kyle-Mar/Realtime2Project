@@ -9,13 +9,14 @@ public class ConsoleMenu : Menu
     // Start is called before the first frame update
     public PlayerInventory playerInventory;
     public Slot[] slots;
+    public int rerollCost = 15;
     public TrapItem[] availableShopItems = new TrapItem[3];
     System.Random rnd = new System.Random();
 
     void Start()
     {
         slots = this.menuObject.GetComponentsInChildren<Slot>();
-        RerollTraps();
+        NewItemsForSlots();
         MenuManager.CloseMenu(this);
     }
 
@@ -32,6 +33,20 @@ public class ConsoleMenu : Menu
     }
 
     public void RerollTraps() 
+    {
+        if(PlayerInventory.numCoins >= 15)
+        {
+            PlayerInventory.numCoins -= 15;
+        }
+        else
+        {
+            return;
+        }
+        NewItemsForSlots();
+
+    }
+
+    private void NewItemsForSlots() 
     {
         foreach (Slot slot in slots)
         {
