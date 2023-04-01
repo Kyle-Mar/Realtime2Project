@@ -36,7 +36,7 @@ public class ConsoleMenu : Menu
         foreach (Slot slot in slots)
         {
             TrapItem newTrap = selectNewTrap();
-            slot.UpdateSlot(newTrap.image, newTrap.itemName);
+            slot.UpdateSlot(newTrap.image, newTrap.itemName, newTrap.cost);
         }
     }
 
@@ -50,7 +50,11 @@ public class ConsoleMenu : Menu
     {
         Debug.Log("HELLO");
         var trapItem = availableShopItems.Where(x => x.itemName == slot.text.text).FirstOrDefault();
-        playerInventory.AddItem(trapItem);
+        if (PlayerInventory.numCoins >= trapItem.cost)
+        {
+            PlayerInventory.numCoins -= trapItem.cost;
+            playerInventory.AddItem(trapItem);
+        } 
     }
 
 }
