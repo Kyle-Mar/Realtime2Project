@@ -29,7 +29,6 @@ public class PlayerInventory : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.L)){
-            DrawInventory();
             foreach (var item in inventory)
             {
                 Debug.Log(item.count + item.item.name);
@@ -54,6 +53,7 @@ public class PlayerInventory : MonoBehaviour
                 if(iSlot.count < MAX_ITEMS_PER_TYPE)
                 {
                     inventory[index].count++;
+                    DrawInventory();
                     return;
                 }
                 else
@@ -67,6 +67,7 @@ public class PlayerInventory : MonoBehaviour
         newSlot.item = itemToAdd;
         newSlot.count = 1;
         inventory.Add(newSlot);
+        DrawInventory();
     }
 
     public void RemoveItem(TrapItem itemToRemove)
@@ -79,11 +80,13 @@ public class PlayerInventory : MonoBehaviour
                 if(iSlot.count - 1 <= 0)
                 {
                     inventory.Remove(iSlot);
+                    DrawInventory();
                     return;
                 }
                 else
                 {
                     inventory[index].count--;
+                    DrawInventory();
                     return;
                 }
             }
@@ -115,7 +118,7 @@ public class PlayerInventory : MonoBehaviour
             TMP_Text text = iconObject.GetComponentInChildren<TMP_Text>();
 
             image.sprite = slot.item.image;
-            text.text = slot.item.itemName;
+            text.text = slot.item.itemName + ": " + slot.count;
             iconPos.y = startPos.y - (height / 10) * index;
 
             index++;
