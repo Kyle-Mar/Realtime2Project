@@ -52,8 +52,9 @@ public class ConsoleMenu : Menu
         var trapItem = availableShopItems.Where(x => x.itemName == slot.text.text).FirstOrDefault();
         if (PlayerInventory.numCoins >= trapItem.cost)
         {
-            PlayerInventory.numCoins -= trapItem.cost;
-            playerInventory.AddItem(trapItem);
+            if (playerInventory.AddItem(trapItem)) { 
+                PlayerInventory.numCoins -= trapItem.cost;
+            }
         } 
     }
 

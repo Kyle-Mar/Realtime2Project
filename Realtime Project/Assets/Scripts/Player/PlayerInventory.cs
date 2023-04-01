@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     const int MAX_ITEMS_PER_TYPE = 5;
     const int MAX_ITEMS = 3;
     
-    public static float numCoins = 0;
+    public static float numCoins = 9999;
     public TMP_Text coinsText;
 
     List<InventorySlot> inventory = new List<InventorySlot>();
@@ -38,11 +38,11 @@ public class PlayerInventory : MonoBehaviour
         coinsText.text = "Coins: " + numCoins.ToString();
     }
 
-    public void AddItem(TrapItem itemToAdd)
+    public bool AddItem(TrapItem itemToAdd)
     {
         if(inventory.Count> MAX_ITEMS)
         {
-            return;
+            return false;
         }
         int index = 0;
 
@@ -54,11 +54,11 @@ public class PlayerInventory : MonoBehaviour
                 {
                     inventory[index].count++;
                     DrawInventory();
-                    return;
+                    return true;
                 }
                 else
                 {
-                    return;
+                    return false;
                 }
             }
             index++;
@@ -68,6 +68,7 @@ public class PlayerInventory : MonoBehaviour
         newSlot.count = 1;
         inventory.Add(newSlot);
         DrawInventory();
+        return true;
     }
 
     public void RemoveItem(TrapItem itemToRemove)
@@ -119,7 +120,7 @@ public class PlayerInventory : MonoBehaviour
 
             image.sprite = slot.item.image;
             text.text = slot.item.itemName + ": " + slot.count;
-            iconPos.y = startPos.y - (height / 10) * index;
+            iconPos.y = startPos.y - (height / 5) * index;
 
             index++;
 
