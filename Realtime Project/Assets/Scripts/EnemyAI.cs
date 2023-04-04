@@ -114,6 +114,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public void Damage(float amount)
     {
         health -= amount;
+        Debug.Log("Health = " + (health + amount) + " - - damage = " + amount + " - - new = " + health);
         if (health <= 0)
         {
             Vector3 spawnPos = new Vector3(transform.position.x,
