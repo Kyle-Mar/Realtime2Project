@@ -8,8 +8,10 @@ public class PlayerInventory : MonoBehaviour
 {
     const int MAX_ITEMS_PER_TYPE = 5;
     const int MAX_ITEMS = 3;
-    
-    public static float numCoins = 9999;
+
+    [SerializeField]
+    private static float startCoins = 9999;
+    public static float numCoins;
     public TMP_Text coinsText;
 
     List<InventorySlot> inventory = new List<InventorySlot>();
@@ -22,6 +24,7 @@ public class PlayerInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        numCoins = startCoins;
         coinsText.text = "Coins: " + numCoins.ToString();
     }
 
@@ -29,6 +32,11 @@ public class PlayerInventory : MonoBehaviour
     void Update()
     {
         coinsText.text = "Coins: " + numCoins.ToString();
+    }
+
+    public static void ResetCoins()
+    {
+        numCoins = startCoins;
     }
 
     public bool AddItem(TrapItem itemToAdd)
@@ -89,28 +97,28 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    public bool RemoveItem(int idx)
+    public RemoveItemResult RemoveItem(int idx)
     {
         if(idx < 0)
         {
-            return false;
+            return new RemoveItemResult(null, false);
         }
-        if(idx > inventory.Count)
+        if(idx > inventory.Count-1)
         {
-            return false;
+            return new RemoveItemResult(null, false);
         }
         InventorySlot slot = inventory[idx];
         if(slot.count -1 <= 0)
         {
             inventory.RemoveAt(idx);
             DrawInventory();
-            return true;
+            return new RemoveItemResult(slot.item, true);
         }
         else
         {
             inventory[idx].count--;
             DrawInventory();
-            return true;
+            return new RemoveItemResult(slot.item, true);
         }
     }
 
@@ -155,4 +163,17 @@ public class InventorySlot
 {
     public TrapItem item;
     public int count;
+}
+
+public class RemoveItemResult
+{
+    public TrapItem Item;
+    public bool Success;
+
+    public RemoveItemResult(TrapItem item, bool success)
+    {
+        Item = item;
+        Success = success;
+    }
+
 }

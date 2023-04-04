@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Spike Trap
   cost: 3
   image: {fileID: 21300000, guid: 81e544791ae2d0445b02e48baeac07a6, type: 3}
+  obj: {fileID: 7064032344713589796, guid: fc5f6e978fd28f34bb552ad994916258, type: 3}

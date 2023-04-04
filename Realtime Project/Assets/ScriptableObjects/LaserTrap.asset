@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Laser Trap
   cost: 5
   image: {fileID: 21300000, guid: 88450fd6e16c7774d9014eb96eea835d, type: 3}
+  obj: {fileID: 8732645448548597851, guid: 4af2035164c347b41aeb1f94540d3930, type: 3}
