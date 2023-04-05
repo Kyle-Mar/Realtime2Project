@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trapVariant: 2
   hurtbox: {fileID: 0}
-  damage: 1
+  damage: 10
   setDamageTimer: 5
 --- !u!65 &4080214934778794011
 BoxCollider:

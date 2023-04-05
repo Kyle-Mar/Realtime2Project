@@ -9,6 +9,7 @@ public class TrapPlacement : MonoBehaviour
     public GameObject TeslaTrap;
     public GameObject LaserTrap;
     public GameObject SpikeTrap;
+    public GameObject SignalTrap;
     public PlayerInventory playerInventory;
 
     // Start is called before the first frame update
@@ -67,6 +68,11 @@ public class TrapPlacement : MonoBehaviour
                         Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
                         tileScript.isFree = false;
                     }
+                }
+                else if (Input.GetKeyDown("4"))
+                {
+                    Instantiate(SignalTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+                    tileScript.isFree = false;
                 }
 
             }

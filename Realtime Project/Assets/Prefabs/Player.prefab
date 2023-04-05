@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2197467359545783156}
   - component: {fileID: 7975828290373146949}
   - component: {fileID: 7377455780507547989}
+  - component: {fileID: 1151716}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -116,6 +117,8 @@ MonoBehaviour:
   TeslaTrap: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}
   LaserTrap: {fileID: 8732645448548597851, guid: 4af2035164c347b41aeb1f94540d3930, type: 3}
   SpikeTrap: {fileID: 7064032344713589796, guid: fc5f6e978fd28f34bb552ad994916258, type: 3}
+  SignalTrap: {fileID: 66144264482132795, guid: 185c0978ceb8ebc4b82b8c3674f95e50, type: 3}
+  playerInventory: {fileID: 1151716}
 --- !u!114 &1200535681620285068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +187,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f6cf719cf3e964aa6931e0db9d6b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+--- !u!114 &1151716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329999808627016107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6537d3c4df7004f9bc695aea856c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsText: {fileID: 0}
+  testItem: {fileID: 11400000, guid: 3f489936a081a0b43b03aa7773061d02, type: 2}
+  canvasObject: {fileID: 0}
+  inventoryHudIcon: {fileID: 8472031634865989820, guid: 2bbe290e8fa0dd3448b9cb09e7a4bdd5, type: 3}
 --- !u!1 &1329999808958921912
 GameObject:
   m_ObjectHideFlags: 0
