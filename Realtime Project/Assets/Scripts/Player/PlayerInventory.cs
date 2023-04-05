@@ -25,6 +25,7 @@ public class PlayerInventory : MonoBehaviour
     void Start()
     {
         numCoins = startCoins;
+        coinsText = GameObject.Find("Coins Text").GetComponent<TMP_Text>();
         coinsText.text = "Coins: " + numCoins.ToString();
     }
 
