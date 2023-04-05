@@ -92,6 +92,7 @@ public class EnemySpawnRange : MonoBehaviour
     {
         for (int num = numToCreate; num > 0; num--)
         {
+            Debug.Log("SPAWNERS");
             // Create spawner
             int rand = Random.Range(0, spawnerPositionsList.Count-1);
             Vector3 spawnerPos = spawnerPositionsList[rand];
