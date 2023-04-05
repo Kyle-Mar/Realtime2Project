@@ -5,9 +5,11 @@ using UnityEngine;
 public class TrapPlacement : MonoBehaviour
 {
     public GameObject PlayerBody;
+
     public GameObject TeslaTrap;
     public GameObject LaserTrap;
     public GameObject SpikeTrap;
+    public PlayerInventory playerInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -41,18 +43,30 @@ public class TrapPlacement : MonoBehaviour
 
                 if (Input.GetKeyDown("1"))
                 {
-                    Instantiate(TeslaTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                    tileScript.isFree = false;
+                    RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(0);
+                    if (itemAndSuccess.Success)
+                    {
+                        Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+                        tileScript.isFree = false;
+                    }
                 }
                 else if (Input.GetKeyDown("2"))
                 {
-                    Instantiate(LaserTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                    tileScript.isFree = false;
+                    RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(1);
+                    if (itemAndSuccess.Success)
+                    {
+                        Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+                        tileScript.isFree = false;
+                    }
                 }
                 else if (Input.GetKeyDown("3"))
                 {
-                    Instantiate(SpikeTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                    tileScript.isFree = false;
+                    RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(0);
+                    if (itemAndSuccess.Success)
+                    {
+                        Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+                        tileScript.isFree = false;
+                    }
                 }
 
             }

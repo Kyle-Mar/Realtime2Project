@@ -9,6 +9,7 @@ public class Slot : MonoBehaviour
 {
     public Image image;
     public TMPro.TMP_Text text;
+    public float cost;
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,10 +25,11 @@ public class Slot : MonoBehaviour
     }
 
 
-    public void UpdateSlot(Sprite sprite, string str)
+    public void UpdateSlot(Sprite sprite, string str, float newCost)
     {
 
         text.text = str;
         image.sprite = sprite;
+        cost = newCost;
     }
 }
