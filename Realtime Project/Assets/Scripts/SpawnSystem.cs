@@ -21,7 +21,7 @@ public class SpawnSystem : MonoBehaviour
         children = GetComponentsInChildren<EnemySpawnRange>();
         HUD = GameObject.Find("HUD");
         HUD_text_script = HUD.GetComponent<HUD_Text>();
-        timerImage = GameObject.Find("HUD_Timer").GetComponent<Image>();
+        timerImage = GameObject.Find("Timer").GetComponent<Image>();
     }
 
 

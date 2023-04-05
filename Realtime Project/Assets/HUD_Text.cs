@@ -7,14 +7,14 @@ public class HUD_Text : MonoBehaviour
 {
     // Start is called before the first frame update
     SpawnSystem spawnScript;
-   // TextMeshProUGUI waveText;
+    TextMeshProUGUI waveText;
     private void Start()
     {
         spawnScript = GameObject.Find("SpawnRanges").GetComponent<SpawnSystem>();
-        //waveText = GameObject.Find("Wave Text").GetComponent<TextMeshProUGUI>();
+        waveText = GameObject.Find("Wave Text").GetComponent<TextMeshProUGUI>();
     }
     public void updateWaveCount()
     {
-        //waveText.text = "Wave " + spawnScript.waveCount;
+        waveText.text = "Wave " + spawnScript.waveCount;
     }
 }
