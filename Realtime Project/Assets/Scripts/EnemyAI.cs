@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 {
     public float moveSpeed = 3f;
     public float aggroRange = 8f;
+    public float towerAggroRange = 16.0f;
 
     public GameObject player;
     public GameObject controlPanel;
@@ -25,6 +26,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     public const float STRENGTH = 0.5f;
     IDamageable playerDamageScript;
+
+    public List<Vector3> destinationPointsList = new List<Vector3>();
+    public List<Vector3> signalTowerList = new List<Vector3>();
 
     void Start()
     {
@@ -51,6 +55,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     void Update()
     {
+        /*
         if(isAggro)
         {
             if(Vector3.Distance(transform.position, player.transform.position) > aggroRange)
@@ -64,6 +69,41 @@ public class EnemyAI : MonoBehaviour, IDamageable
             moveTarget = player;
             isAggro = true;
         }
+        */
+
+        // Is Aggro by either Player or Tower
+        if (isAggro)
+        {
+            if (Vector3.Distance(transform.position, player.transform.position) > aggroRange)
+            {
+                moveTarget = controlPanel;
+                isAggro = false;
+            }
+        }
+        // Is currently not Aggro
+        else
+        {
+            // Look for player first
+            if (Vector3.Distance(transform.position, player.transform.position) < aggroRange)
+            {
+                moveTarget = player;
+                isAggro = true;
+            }
+            // Then look for tower
+            else
+            { 
+                foreach (Vector3 towerPos in signalTowerList)
+                {
+                    if (Vector3.Distance(transform.position, towerPos) < towerAggroRange)
+                    {
+                        moveTarget = player;
+                        isAggro = true;
+                    }
+                }
+            }
+            // Then look for next destination (If we were doing walls ?)
+        }
+
 
         Look();
 

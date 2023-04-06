@@ -10,6 +10,7 @@ public class TrapPlacement : MonoBehaviour
     public GameObject LaserTrap;
     public GameObject SpikeTrap;
     public GameObject SignalTrap;
+    public GameObject EnemyManager;
     public PlayerInventory playerInventory;
 
     // Start is called before the first frame update
@@ -71,7 +72,10 @@ public class TrapPlacement : MonoBehaviour
                 }
                 else if (Input.GetKeyDown("4"))
                 {
-                    Instantiate(SignalTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+                    GameObject newSignalTrap = Instantiate(SignalTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+                    newSignalTrap.GetComponent<TrapBehavior>().enemyManager = EnemyManager;
+                    EnemyManager.GetComponent<EnemyManager>().signalTowerListA.Add(newSignalTrap);
+                    Debug.Log(EnemyManager.GetComponent<EnemyManager>().signalTowerListA);
                     tileScript.isFree = false;
                 }
 

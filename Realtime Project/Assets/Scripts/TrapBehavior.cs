@@ -19,6 +19,8 @@ public class TrapBehavior : MonoBehaviour
     public float setDamageTimer = 5.0f;
     private float damageTimer;
 
+    public GameObject enemyManager;
+
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class TrapBehavior : MonoBehaviour
             case trapType.Signal:
                 setDamageTimer = 100;
                 damage = 0;
+                //enemyManager.GetComponent<EnemyManager>().signalTowerListA.Add(gameObject);
                 break;
         }
     }

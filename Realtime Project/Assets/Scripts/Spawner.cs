@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject enemyManager; // Here
 
     private float spawnCooldown= 3f;
     private float lastSpawnTime = 0f;
@@ -44,9 +45,13 @@ public class Spawner : MonoBehaviour
 
     void SpawnAnEnemy()
     {
-        GameObject newEnemy = Instantiate(enemy, spawnLocation, spawnRotation);
+        //GameObject newEnemy = enemyManager.GetComponent<EnemyManager>().AddSlime(enemy, spawnLocation, spawnRotation);
+        
+        GameObject newEnemy = Instantiate(enemy, spawnLocation, spawnRotation, enemyManager.transform);
         EnemyAI script = newEnemy.GetComponent<EnemyAI>();
         script.player = player;
         script.controlPanel = controlPanel;
+
+        enemyManager.GetComponent<EnemyManager>().AddSlime(script.signalTowerList);
     }
 }

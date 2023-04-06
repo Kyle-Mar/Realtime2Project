@@ -8,6 +8,7 @@ public class EnemySpawnRange : MonoBehaviour
     public GameObject enemy;
     public GameObject blueEnemy;
     public GameObject spawnerPrefab;
+    public GameObject enemyManager; // Here
     private float width;
     private float height;
     private float spacing = 4.0f;
@@ -97,13 +98,15 @@ public class EnemySpawnRange : MonoBehaviour
             int rand = Random.Range(0, spawnerPositionsList.Count-1);
             Vector3 spawnerPos = spawnerPositionsList[rand];
             GameObject newSpawner = Instantiate(spawnerPrefab, spawnerPos, transform.rotation);
+            Spawner newSpawnerScript = newSpawner.GetComponent<Spawner>();
+            newSpawnerScript.enemyManager = enemyManager;
 
             // Set enemy to spawn
             rand = Random.Range(1, 5);
             switch (rand)
             {
                 case 1:
-                    newSpawner.GetComponent<Spawner>().enemy = blueEnemy;
+                    newSpawnerScript.enemy = blueEnemy;
                     break;
             }
 
