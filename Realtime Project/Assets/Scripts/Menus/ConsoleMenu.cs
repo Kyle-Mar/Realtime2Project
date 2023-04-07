@@ -16,8 +16,6 @@ public class ConsoleMenu : Menu
     void Start()
     {
         slots = this.menuObject.GetComponentsInChildren<Slot>();
-        NewItemsForSlots();
-        MenuManager.CloseMenu(this);
     }
 
     // Update is called once per frame
@@ -42,6 +40,12 @@ public class ConsoleMenu : Menu
         {
             return;
         }
+        NewItemsForSlots();
+
+    }
+
+    public override void OnOpen()
+    {
         NewItemsForSlots();
 
     }

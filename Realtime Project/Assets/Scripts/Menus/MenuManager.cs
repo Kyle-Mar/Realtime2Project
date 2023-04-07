@@ -81,7 +81,7 @@ public class MenuManager :MonoBehaviour
         Cursor.visible = false;
         menu.IsActive = false;
         menu.menuObject.SetActive(false);
-        activeMenu.OnClose();
+        menu.OnClose();
         activeMenu = null;
     }
 
