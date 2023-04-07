@@ -100,6 +100,13 @@ public class EnemySpawnRange : MonoBehaviour
 
     public void SpawnSpawners(int numToCreate)
     {
+
+        if (spawnerColumnList.Count <= 0)
+        {
+            // there are no more columns so don't spawn more.
+            return;
+        }
+
         for (int num = numToCreate; num > 0; num--)
         {
             Debug.Log("SPAWNERS");
