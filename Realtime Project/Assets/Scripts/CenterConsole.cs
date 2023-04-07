@@ -39,6 +39,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
         {
             return;
         }
+        Debug.Log("HELLo");
         StartCoroutine(GravityCooldown());
         MenuManager.OpenMenu(MenuManager.ConsoleMenu);
     }

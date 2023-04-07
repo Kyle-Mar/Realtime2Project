@@ -31,7 +31,8 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!MenuManager.ActiveMenu.IsActive)
+
+        if (MenuManager.ActiveMenu == null)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -43,6 +44,8 @@ public class PlayerInputController : MonoBehaviour
                 Interact.Interact();
             }
         }
+
+        
 
         // State Machine would be too much work right now.
         // It would have to be hierarchical 

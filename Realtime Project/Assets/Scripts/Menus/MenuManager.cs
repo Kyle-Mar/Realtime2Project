@@ -72,6 +72,7 @@ public class MenuManager :MonoBehaviour
         menu.IsActive = true;
         activeMenu = menu;
         activeMenu.menuObject.SetActive(true);
+        activeMenu.OnOpen();
     }
 
     public static void CloseMenu(Menu menu)
@@ -80,5 +81,26 @@ public class MenuManager :MonoBehaviour
         Cursor.visible = false;
         menu.IsActive = false;
         menu.menuObject.SetActive(false);
+        activeMenu.OnClose();
+        activeMenu = null;
+    }
+
+    private void Update()
+    {
+        Debug.Log(activeMenu);
+        #if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Tab))
+        #else
+        if (Input.GetKeyDown(KeyCode.Escape))
+        #endif
+        if (activeMenu != null)
+        {
+            CloseMenu(activeMenu);
+        }
+        else
+        {
+            Debug.Log("HELLO");
+            OpenMenu(pauseMenu);
+        }
     }
 }
