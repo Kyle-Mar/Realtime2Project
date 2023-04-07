@@ -12,7 +12,8 @@ public class EnemySpawnRange : MonoBehaviour
     private float height;
     private float spacing = 4.0f;
 
-    public List<Vector3> spawnerPositionsList = new List<Vector3>();
+    public List<List<Vector3>> spawnerColumnList = new List<List<Vector3>>();
+    //public List<Vector3> spawnerPositionsList = new List<Vector3>();
     private List<GameObject> spawnersList = new List<GameObject>();
 
     public bool isActive = true;
@@ -20,7 +21,7 @@ public class EnemySpawnRange : MonoBehaviour
     private bool spawnSpawnerBool = true; // tmp for debug
 
 
-    
+
 
     void Start()
     {
@@ -34,32 +35,41 @@ public class EnemySpawnRange : MonoBehaviour
         // Should change to blank first then add method
         for (float w = spacing / 2.0f; w < width; w += spacing)
         {
+            List<Vector3> colList = new List<Vector3>();
             for (float h = spacing / 2.0f; h < height; h += spacing)
             {
                 // Not optimal but works I guess...
-                switch(transform.rotation.eulerAngles.y)
+                switch (transform.rotation.eulerAngles.y)
                 {
                     case 0:
-                    {
-                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x - w, corner.transform.position.y - h, corner.transform.position.z + 1.0f));
-                        break;
-                    }
+                        {
+                            colList.Add(new Vector3(corner.transform.position.x - w, corner.transform.position.y - h, corner.transform.position.z + 1.0f));
+                            break;
+                        }
                     case 90:
-                    {
-                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x + 1.0f, corner.transform.position.y - h, corner.transform.position.z + w));
-                        break;
-                    }
+                        {
+                            colList.Add(new Vector3(corner.transform.position.x + 1.0f, corner.transform.position.y - h, corner.transform.position.z + w));
+                            break;
+                        }
                     case 180:
-                    {
-                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x + w, corner.transform.position.y - h, corner.transform.position.z - 1.0f));
-                        break;
-                    }
+                        {
+                            colList.Add(new Vector3(corner.transform.position.x + w, corner.transform.position.y - h, corner.transform.position.z - 1.0f));
+                            break;
+                        }
                     case 270:
-                    {
-                        spawnerPositionsList.Add(new Vector3(corner.transform.position.x - 1.0f, corner.transform.position.y - h, corner.transform.position.z - w));
-                        break;
-                    }
-    }   }   }   }
+                        {
+                            colList.Add(new Vector3(corner.transform.position.x - 1.0f, corner.transform.position.y - h, corner.transform.position.z - w));
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                spawnerColumnList.Add(colList);
+            }
+        }
+    }
 
     //void Update()
     //{
@@ -94,22 +104,26 @@ public class EnemySpawnRange : MonoBehaviour
         {
             Debug.Log("SPAWNERS");
             // Create spawner
-            int rand = Random.Range(0, spawnerPositionsList.Count-1);
-            Vector3 spawnerPos = spawnerPositionsList[rand];
+            int randCol = Random.Range(0, spawnerColumnList.Count-1);
+            List<Vector3> spawnerCol = spawnerColumnList[randCol];
+            int randSpawner = Random.Range(0, spawnerCol.Count - 1);
+            Vector3 spawnerPos = spawnerCol[randSpawner];
             GameObject newSpawner = Instantiate(spawnerPrefab, spawnerPos, transform.rotation);
 
             // Set enemy to spawn
-            rand = Random.Range(1, 5);
-            switch (rand)
+            int randEnemy = Random.Range(1, 5);
+            switch (randEnemy)
             {
                 case 1:
                     newSpawner.GetComponent<Spawner>().enemy = blueEnemy;
+                    break;
+                default:
                     break;
             }
 
             // Ad to list
             spawnersList.Add(newSpawner);
-            spawnerPositionsList.Remove(spawnerPos);
+            spawnerColumnList.Remove(spawnerCol);
     }   }
 
     public void PauseSpawners()
