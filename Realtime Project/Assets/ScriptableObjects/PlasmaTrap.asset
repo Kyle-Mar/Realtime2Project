@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PlasmaTrap
   m_EditorClassIdentifier: 
   itemName: Plasma Trap
-  cost: 0
+  cost: 7
   image: {fileID: 21300000, guid: d143a6c98197c1c48b7804eb97dfedcc, type: 3}
+  obj: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}
