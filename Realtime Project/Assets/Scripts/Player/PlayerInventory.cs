@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
     List<InventorySlot> inventory = new List<InventorySlot>();
     public TrapItem testItem;
 
-    public GameObject canvasObject;
+    public GameObject gridObject;
     public GameObject inventoryHudIcon;
     List<GameObject> inventoryIcons = new List<GameObject>();
 
@@ -42,12 +42,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool AddItem(TrapItem itemToAdd)
     {
-        if(inventory.Count> MAX_ITEMS)
-        {
-            return false;
-        }
         int index = 0;
-
         foreach(InventorySlot iSlot in inventory.ToArray())
         {
             if(iSlot.item == itemToAdd)
@@ -65,6 +60,14 @@ public class PlayerInventory : MonoBehaviour
             }
             index++;
         }
+
+        // if adding another item would exceed max items, don't add the item.
+        if (inventory.Count + 1 > MAX_ITEMS)
+        {
+            return false;
+        }
+
+        // this is the case of a new item.
         InventorySlot newSlot = new();
         newSlot.item = itemToAdd;
         newSlot.count = 1;
@@ -123,40 +126,28 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+
+    private void AddSlotToScreen(InventorySlot slot)
+    {
+        GameObject iconObject = Instantiate(inventoryHudIcon, Vector3.zero, Quaternion.identity, gridObject.transform);
+        Image image = iconObject.GetComponent<Image>();
+        TMP_Text text = iconObject.GetComponentInChildren<TMP_Text>();
+        image.sprite = slot.item.image;
+        text.text = slot.item.itemName + ": " + slot.count;
+        inventoryIcons.Add(iconObject);
+    }
+
     public void DrawInventory()
     {
-        for(int i = 0; i < inventoryIcons.Count; i++)
+        for (int i = 0; i < inventoryIcons.Count; i++)
         {
             Destroy(inventoryIcons[i]);
         }
 
-        RectTransform rect = canvasObject.GetComponent<RectTransform>();
-
-        float height = rect.sizeDelta.y * rect.localScale.y;
-        float width = rect.sizeDelta.x * rect.localScale.x;
-
-
-        Vector3 startPos = new Vector3(width/20, height - height /10, 0f);
-        Vector3 iconPos = startPos;
-        int index = 1;
-        foreach(InventorySlot slot in inventory)
+        foreach (InventorySlot slot in inventory)
         {
-            GameObject iconObject = Instantiate(inventoryHudIcon, iconPos, Quaternion.identity, canvasObject.transform);
-            Debug.Log(iconObject.transform.position);
-            Image image = iconObject.GetComponent<Image>();
-            TMP_Text text = iconObject.GetComponentInChildren<TMP_Text>();
-
-            image.sprite = slot.item.image;
-            text.text = slot.item.itemName + ": " + slot.count;
-            iconPos.y = startPos.y - (height / 5) * index;
-
-            index++;
-
-            inventoryIcons.Add(iconObject);
-
+            AddSlotToScreen(slot);
         }
-
-
     }
 }
 
