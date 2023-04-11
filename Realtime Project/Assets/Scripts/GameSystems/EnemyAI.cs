@@ -122,8 +122,13 @@ public class EnemyAI : MonoBehaviour, IDamageable
                                                                                                           //The enemies position is at the bottom of the enemy. This is a dirty fix.
                                            transform.position.z);
             Instantiate(coin, spawnPos, Quaternion.identity);
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 
     void OnCollisionStay(Collision other)
