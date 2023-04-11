@@ -38,17 +38,13 @@ public class TrapPlacement : MonoBehaviour
                 // Place Trap on Selected Tile
                 //Vector3 trapLocation = new Vector3(thisTile.transform.position.x, 2.5f, thisTile.transform.position.z); // Only works on ground for now
                 Vector3 trapLocation = tileScript.spawnPos.transform.position;
-                float upDirection = 0.0f;
-                if (Physics.gravity.y > 0.0f) upDirection = 180.0f;
-                
 
                 if (Input.GetKeyDown("1"))
                 {
                     RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(0);
                     if (itemAndSuccess.Success)
                     {
-                        Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                        tileScript.isFree = false;
+                        CreateTrap(itemAndSuccess.Item.obj, trapLocation, tileScript);
                     }
                 }
                 else if (Input.GetKeyDown("2"))
@@ -56,25 +52,17 @@ public class TrapPlacement : MonoBehaviour
                     RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(1);
                     if (itemAndSuccess.Success)
                     {
-                        Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                        tileScript.isFree = false;
+                        CreateTrap(itemAndSuccess.Item.obj, trapLocation, tileScript);
                     }
                 }
                 else if (Input.GetKeyDown("3"))
                 {
-                    RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(0);
+                    RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(2);
                     if (itemAndSuccess.Success)
                     {
-                        Instantiate(itemAndSuccess.Item.obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                        tileScript.isFree = false;
+                        CreateTrap(itemAndSuccess.Item.obj, trapLocation, tileScript);
                     }
                 }
-                else if (Input.GetKeyDown("4"))
-                {
-                    Instantiate(SignalTrap, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-                    tileScript.isFree = false;
-                }
-
             }
         }
         //else Debug.Log("No Hit");
@@ -100,6 +88,21 @@ public class TrapPlacement : MonoBehaviour
             Instantiate(SpikeTrap, trapLocation, Quaternion.Euler(0, 0, 0));
         }
         */
+    }
+
+    void CreateTrap(float upDirection, GameObject obj, Vector3 trapLocation, TileScript tileScript)
+    {
+        float upDirection = 0.0;
+        if (Physics.gravity.y > 0.0f)
+        {
+            upDirection = 180.0f;
+        }
+
+
+        GameObject spawnedTrap = Instantiate(obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
+        TrapBehavior trapBehavior = spawnedTrap.GetComponent<TrapBehaviour>();
+        trapBehavior.tile = tileScript;
+        tileScript.isFree = false;
     }
 
     void EvaluateRay(RaycastHit hitData)

@@ -7,37 +7,34 @@ public class PauseMenu : Menu
     // Start is called before the first frame update
     void Start()
     {
-        Pause();
-        Unpause();
+        MenuManager.CloseMenu(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        #if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.Tab))
-        #else
-        if (Input.GetKeyDown(KeyCode.Escape))
-        #endif
-        if (IsActive)
-        {
-            Unpause();
-        }
-        else
-        {
-            Pause();
-        }
+        
+    }
+
+    public override void OnOpen()
+    {
+        Pause();
+        base.OnOpen();
+    }
+
+    public override void OnClose()
+    {
+        Unpause();
+        base.OnClose();
     }
 
     public void Pause()
     {
-        MenuManager.OpenMenu(this);
         Time.timeScale = 0;
     }
 
     public void Unpause()
     {
-        MenuManager.CloseMenu(this);
         Time.timeScale = 1;
     }
 }
