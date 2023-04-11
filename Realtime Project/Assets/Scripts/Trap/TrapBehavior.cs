@@ -13,7 +13,7 @@ public class TrapBehavior : MonoBehaviour
     }
 
     public trapType trapVariant;
-    public GameObject hurtbox;
+    //public GameObject hurtbox;
     private float damage = 50.0f;
     public TileScript tile;
 
@@ -44,14 +44,21 @@ public class TrapBehavior : MonoBehaviour
                 break;
         }
     }
+
     void Update()
     {
         // Deal damage
         damageTimer -= Time.deltaTime;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log("COLLISION");
+    }
+
     private void OnTriggerStay(Collider other)
     {
+        //Debug.Log("TRIGGER");
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (damageTimer < 0)

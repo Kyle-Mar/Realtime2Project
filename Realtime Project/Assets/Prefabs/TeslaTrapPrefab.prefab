@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1573845568414397993}
-  - component: {fileID: -2690055208715763356}
   - component: {fileID: 2667706059236213607}
+  - component: {fileID: 3272759730393643580}
+  - component: {fileID: 841004874778686148}
   m_Layer: 0
   m_Name: TeslaTrapPrefab
   m_TagString: Untagged
@@ -34,22 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2690055208715763356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2205845279299202195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e17a4440ed5f84abb72e93c4b368a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapVariant: 0
-  hurtbox: {fileID: 0}
-  damage: 100
-  setDamageTimer: 5
 --- !u!135 &2667706059236213607
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -63,6 +48,35 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!64 &3272759730393643580
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205845279299202195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 87265987a22eeae46b522d6c9a43aebd, type: 3}
+--- !u!114 &841004874778686148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205845279299202195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9f94296d063af4ebf1425ab1993b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapVariant: 0
+  tile: {fileID: 0}
+  setDamageTimer: 5
 --- !u!1001 &6201416805813616941
 PrefabInstance:
   m_ObjectHideFlags: 0

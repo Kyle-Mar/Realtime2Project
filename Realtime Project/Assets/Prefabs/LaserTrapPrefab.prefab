@@ -95,7 +95,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8249264555161262817}
   - component: {fileID: 6110317501169195300}
-  - component: {fileID: 9173453687940456480}
+  - component: {fileID: 8690117540152466243}
+  - component: {fileID: 400518551912247079}
   m_Layer: 0
   m_Name: LaserTrapPrefab
   m_TagString: Untagged
@@ -133,7 +134,7 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 15, z: 0}
---- !u!114 &9173453687940456480
+--- !u!114 &8690117540152466243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,10 +143,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8732645448548597851}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e17a4440ed5f84abb72e93c4b368a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d9f94296d063af4ebf1425ab1993b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trapVariant: 1
-  hurtbox: {fileID: 0}
-  damage: 25
+  tile: {fileID: 0}
   setDamageTimer: 5
+--- !u!64 &400518551912247079
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732645448548597851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 221e44589938ca743bfdc358cb0dfe0d, type: 3}

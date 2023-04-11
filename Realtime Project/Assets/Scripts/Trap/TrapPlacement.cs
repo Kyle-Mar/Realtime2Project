@@ -90,9 +90,9 @@ public class TrapPlacement : MonoBehaviour
         */
     }
 
-    void CreateTrap(float upDirection, GameObject obj, Vector3 trapLocation, TileScript tileScript)
+    void CreateTrap(GameObject obj, Vector3 trapLocation, TileScript tileScript)
     {
-        float upDirection = 0.0;
+        float upDirection = 0.0f;
         if (Physics.gravity.y > 0.0f)
         {
             upDirection = 180.0f;
@@ -100,7 +100,7 @@ public class TrapPlacement : MonoBehaviour
 
 
         GameObject spawnedTrap = Instantiate(obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-        TrapBehavior trapBehavior = spawnedTrap.GetComponent<TrapBehaviour>();
+        TrapBehavior trapBehavior = spawnedTrap.GetComponent<TrapBehavior>();
         trapBehavior.tile = tileScript;
         tileScript.isFree = false;
     }
