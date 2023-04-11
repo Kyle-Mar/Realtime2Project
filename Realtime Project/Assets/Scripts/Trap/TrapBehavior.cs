@@ -15,6 +15,7 @@ public class TrapBehavior : MonoBehaviour
     public trapType trapVariant;
     public GameObject hurtbox;
     private float damage = 50.0f;
+    public TileScript tile;
 
     public float setDamageTimer = 5.0f;
     private float damageTimer;
