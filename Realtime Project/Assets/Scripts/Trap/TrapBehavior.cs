@@ -13,6 +13,7 @@ public class TrapBehavior : MonoBehaviour
     }
 
     public trapType trapVariant;
+    public GameObject enemyManager;
     public GameObject hurtbox;
     private float damage = 50.0f;
 
@@ -38,8 +39,11 @@ public class TrapBehavior : MonoBehaviour
                 damage = 70.0f;
                 break;
             case trapType.Signal:
-                setDamageTimer = 100;
-                damage = 0;
+                setDamageTimer = 100f;
+                damage = 0f;
+
+                enemyManager.GetComponent<EnemyManager>().AddTower(gameObject);
+
                 break;
         }
     }
@@ -58,7 +62,9 @@ public class TrapBehavior : MonoBehaviour
             {
                 damageTimer = setDamageTimer;
 
-                //Debug.Log("Dealing Damage");
+                
+                Debug.Log("Dealing Damage");
+
                 other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
             }
             

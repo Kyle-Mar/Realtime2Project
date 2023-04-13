@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TrapPlacement : MonoBehaviour
 {
+    public GameObject EnemyManager;
     public GameObject PlayerBody;
+    
 
     public GameObject TeslaTrap;
     public GameObject LaserTrap;
@@ -63,36 +65,21 @@ public class TrapPlacement : MonoBehaviour
                         CreateTrap(itemAndSuccess.Item.obj, trapLocation, tileScript);
                     }
                 }
+                else if (Input.GetKeyDown("4"))
+                {
+                    //RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(2);
+                    //if (itemAndSuccess.Success)
+                    {
+                        CreateTrap(SignalTrap, trapLocation, tileScript);
+                    }
+                }
             }
         }
-        //else Debug.Log("No Hit");
-
-
-
-
-        // Old Code
-        /*Vector3 playerPos = PlayerBody.transform.position;
-        Vector3 playerDirection = PlayerBody.transform.forward * 5.0f;
-        Vector3 trapLocation = new Vector3((int)(playerPos.x + playerDirection.x), 2.6f, (int)(playerPos.z + playerDirection.z));
-
-        if (Input.GetKeyDown("1"))
-        {
-            Instantiate(TeslaTrap, trapLocation, Quaternion.Euler(0,0,0));
-        }
-        else if (Input.GetKeyDown("2"))
-        {
-            Instantiate(LaserTrap, trapLocation, Quaternion.Euler(0, 0, 0));
-        }
-        else if (Input.GetKeyDown("3"))
-        {
-            Instantiate(SpikeTrap, trapLocation, Quaternion.Euler(0, 0, 0));
-        }
-        */
     }
 
-    void CreateTrap(float upDirection, GameObject obj, Vector3 trapLocation, TileScript tileScript)
+    void CreateTrap(GameObject obj, Vector3 trapLocation, TileScript tileScript)
     {
-        float upDirection = 0.0;
+        float upDirection = 0.0f;
         if (Physics.gravity.y > 0.0f)
         {
             upDirection = 180.0f;
@@ -100,8 +87,9 @@ public class TrapPlacement : MonoBehaviour
 
 
         GameObject spawnedTrap = Instantiate(obj, trapLocation, Quaternion.Euler(upDirection, 0, 0));
-        TrapBehavior trapBehavior = spawnedTrap.GetComponent<TrapBehaviour>();
-        trapBehavior.tile = tileScript;
+        TrapBehavior trapBehavior = spawnedTrap.GetComponent<TrapBehavior>();
+        trapBehavior.enemyManager = EnemyManager;
+        //trapBehavior.tile = tileScript;
         tileScript.isFree = false;
     }
 

@@ -87,7 +87,7 @@ public class MenuManager :MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(activeMenu);
+       // Debug.Log(activeMenu);
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Tab))
         #else
@@ -99,7 +99,7 @@ public class MenuManager :MonoBehaviour
         }
         else
         {
-            Debug.Log("HELLO");
+            //Debug.Log("HELLO");
             OpenMenu(pauseMenu);
         }
     }
