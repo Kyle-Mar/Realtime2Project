@@ -20,15 +20,22 @@ public class TrapBehavior : MonoBehaviour
     public float setDamageTimer = 5.0f;
     private float damageTimer;
 
+    private LineRenderer damageLine;
+
 
     void Start()
     {
         damageTimer = 3.0f; // Initial Pause
+        SetDamageLine();
+
         switch (trapVariant)
         {
             case trapType.Tesla:
                 setDamageTimer = 0.2f;
                 damage = 25.0f;
+
+                
+
                 break;
             case trapType.Laser:
                 setDamageTimer = 0.1f;
@@ -56,12 +63,14 @@ public class TrapBehavior : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        damageLine.enabled = false;
         if (other.gameObject.CompareTag("Enemy"))
         {
+            damageLine.enabled = true;
             if (damageTimer < 0)
             {
                 damageTimer = setDamageTimer;
-
+                damageLine.SetPosition(1, other.transform.position);
                 
                 Debug.Log("Dealing Damage");
 
@@ -69,5 +78,13 @@ public class TrapBehavior : MonoBehaviour
             }
             
         }
+    }
+
+    private void SetDamageLine()
+    {
+        damageLine = GetComponent<LineRenderer>();
+        damageLine.SetPosition(0, transform.position);
+        damageLine.SetPosition(1, transform.position);
+        damageLine.enabled = false;
     }
 }
