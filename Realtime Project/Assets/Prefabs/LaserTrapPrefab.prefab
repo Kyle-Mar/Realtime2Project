@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 6110317501169195300}
   - component: {fileID: 8690117540152466243}
   - component: {fileID: 400518551912247079}
+  - component: {fileID: 1254445563358240989}
   m_Layer: 0
   m_Name: LaserTrapPrefab
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,3 +164,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 221e44589938ca743bfdc358cb0dfe0d, type: 3}
+--- !u!114 &1254445563358240989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732645448548597851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f30be6e7781fa49b7f572dfcbe84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

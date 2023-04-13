@@ -31,11 +31,14 @@ public class PlayerAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Terminal"))
+        if (other.gameObject.CompareTag("Terminal") || other.gameObject.CompareTag("Trap"))
         {
             return;
         }
-        other.gameObject.GetComponent<IDamageable>()?.Damage(AttackDamage);
+        if (HurtBox.enabled)
+        {
+            other.gameObject.GetComponent<IDamageable>()?.Damage(AttackDamage);
+        }
     }
 
     IEnumerator AttackTimer()

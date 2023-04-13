@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2667706059236213607}
   - component: {fileID: 3272759730393643580}
   - component: {fileID: 841004874778686148}
+  - component: {fileID: 4838146647962311174}
   m_Layer: 0
   m_Name: TeslaTrapPrefab
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,6 +78,18 @@ MonoBehaviour:
   trapVariant: 0
   tile: {fileID: 0}
   setDamageTimer: 5
+--- !u!114 &4838146647962311174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205845279299202195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f30be6e7781fa49b7f572dfcbe84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6201416805813616941
 PrefabInstance:
   m_ObjectHideFlags: 0

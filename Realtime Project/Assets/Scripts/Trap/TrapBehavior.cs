@@ -53,7 +53,7 @@ public class TrapBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("COLLISION");
+        Debug.Log("HELLO");
     }
 
     private void OnTriggerStay(Collider other)

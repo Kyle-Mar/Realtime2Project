@@ -141,5 +141,10 @@ public class EnemyAI : MonoBehaviour, IDamageable
         {
             other.gameObject.GetComponent<IDamageable>().Damage(STRENGTH);
         }
+        else if (other.gameObject.CompareTag("Trap"))
+        {
+            Debug.Log("Damaging Trap");
+            other.gameObject.GetComponent<IDamageable>().Damage(STRENGTH);
+        }
     }
 }
