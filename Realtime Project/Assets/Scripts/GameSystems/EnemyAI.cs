@@ -23,6 +23,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public float MAX_HEALTH { get; } = 100f;
     public float health { get; set; }
 
+    public AudioClip SlimeHitClip;
+
     public const float STRENGTH = 0.5f;
     IDamageable playerDamageScript;
 
@@ -114,6 +116,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public void Damage(float amount)
     {
         health -= amount;
+        gameObject.GetComponent<SFXPlayer>().PlaySFX(SlimeHitClip, gameObject.transform.position);
         Debug.Log("Health = " + (health + amount) + " - - damage = " + amount + " - - new = " + health);
         if (health <= 0)
         {
