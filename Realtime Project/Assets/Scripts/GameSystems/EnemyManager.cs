@@ -43,4 +43,10 @@ public class EnemyManager : MonoBehaviour
         slimeList.Remove(slime);
     }
 
+    public void ResetOnDeath()
+    {
+        towerList.Clear();
+        slimeList.Clear();
+    }
+
 }

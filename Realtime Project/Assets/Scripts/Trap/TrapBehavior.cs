@@ -26,25 +26,27 @@ public class TrapBehavior : MonoBehaviour
     void Start()
     {
         damageTimer = 3.0f; // Initial Pause
-        SetDamageLine();
+        
 
         switch (trapVariant)
         {
             case trapType.Tesla:
                 setDamageTimer = 0.2f;
                 damage = 25.0f;
-
-                
-
+                SetDamageLine();
                 break;
+
             case trapType.Laser:
                 setDamageTimer = 0.1f;
                 damage = 20;
+                SetDamageLine();
                 break;
+
             case trapType.Spike:
                 setDamageTimer = 1.5f;
                 damage = 70.0f;
                 break;
+
             case trapType.Signal:
                 setDamageTimer = 100f;
                 damage = 0f;
@@ -63,21 +65,37 @@ public class TrapBehavior : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        damageLine.enabled = false;
-        if (other.gameObject.CompareTag("Enemy"))
+        // Traps with lasers
+        if (trapVariant == trapType.Tesla || trapVariant == trapType.Laser)
         {
-            damageLine.enabled = true;
-            if (damageTimer < 0)
+            damageLine.enabled = false;
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                damageTimer = setDamageTimer;
-                damageLine.SetPosition(1, other.transform.position);
-                
-                Debug.Log("Dealing Damage");
+                damageLine.enabled = true;
+                if (damageTimer < 0)
+                {
+                    damageTimer = setDamageTimer;
+                    damageLine.SetPosition(1, other.transform.position);
+                    //Debug.Log("Dealing Damage");
+                    other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+                }
 
-                other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
             }
-            
         }
+        // Traps without lasers
+        else
+        {
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                if (damageTimer < 0)
+                {
+                    damageTimer = setDamageTimer;
+                    other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+                }
+
+            }
+        }
+        
     }
 
     private void SetDamageLine()

@@ -35,25 +35,30 @@ public class SpawnSystem : MonoBehaviour
             if (!activeWave)
             {
                 // Beginning of New Wave
-                waveCount++;
-                HUD_text_script.updateWaveCount();
-
-                activeWave = true;
-                foreach(EnemySpawnRange child in children)
+                if (Input.GetKeyDown("0"))
                 {
-                    child.UnpauseSpawners();
-                    child.SpawnSpawners(numToSpawn);
+                    waveCount++;
+                    HUD_text_script.updateWaveCount();
+
+                    activeWave = true;
+                    foreach (EnemySpawnRange child in children)
+                    {
+                        child.UnpauseSpawners();
+                        child.SpawnSpawners(numToSpawn);
+                    }
+                    waveTimer = 0.0f;
                 }
             }
             else
             {
                 activeWave = false;
-                foreach(EnemySpawnRange child in children)
+                foreach (EnemySpawnRange child in children)
                 {
                     child.PauseSpawners();
                 }
+                waveTimer = 0.0f;
             }
-            waveTimer = 0.0f;
+            
         }
 
         //Cory Timer HUD stuff down here
