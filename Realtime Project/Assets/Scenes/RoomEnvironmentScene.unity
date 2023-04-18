@@ -142,6 +142,14 @@ PrefabInstance:
       propertyPath: canvasObject
       value: 
       objectReference: {fileID: 1238768954}
+    - target: {fileID: 1200535681620285068, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+      propertyPath: KnockbackAngle
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1200535681620285068, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+      propertyPath: KnockbackUpward
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1329999808627016105, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2183,7 +2191,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: bb15c3686efe96a47a25d76745d8e58e, type: 2}
     - target: {fileID: 896225601, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
       propertyPath: m_IsActive
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060790184, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
       propertyPath: m_Color.a

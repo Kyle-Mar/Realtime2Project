@@ -134,7 +134,9 @@ MonoBehaviour:
   HurtBox: {fileID: 1155222339}
   AttackCooldown: 2
   AttackLength: 0.5
-  AttackDamage: 100
+  AttackDamage: 10
+  KnockbackStrength: 500
+  KnockbackUpward: 50
   isAttacking: 0
 --- !u!114 &-2139423774149547620
 MonoBehaviour:
@@ -201,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinsText: {fileID: 0}
   testItem: {fileID: 11400000, guid: 3f489936a081a0b43b03aa7773061d02, type: 2}
-  canvasObject: {fileID: 0}
+  gridObject: {fileID: 0}
   inventoryHudIcon: {fileID: 8472031634865989820, guid: 2bbe290e8fa0dd3448b9cb09e7a4bdd5, type: 3}
 --- !u!1 &1329999808958921912
 GameObject:
