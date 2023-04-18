@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 64000010102909304}
   - component: {fileID: 6714556107955435410}
   - component: {fileID: 9060549917440909984}
+  - component: {fileID: 692910171940627689}
   m_Layer: 0
   m_Name: Center Console
   m_TagString: Terminal
@@ -112,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aaa70ea7d09ee4abc5ae930e24189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerBodyTransform: {fileID: 0}
 --- !u!114 &9060549917440909984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,5 +124,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b34db77458daa64ca774ba3a7b481bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConsoleDamageSoundEffect: {fileID: 8300000, guid: 37bb4436d53c86e40b432c98b3953dff, type: 3}
+--- !u!114 &692910171940627689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011612236098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54984f5f3dc2c3b4a9a9edbe42caded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

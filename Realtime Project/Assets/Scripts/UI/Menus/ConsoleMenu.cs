@@ -11,6 +11,7 @@ public class ConsoleMenu : Menu
     public Slot[] slots;
     public int rerollCost = 15;
     public TrapItem[] availableShopItems = new TrapItem[3];
+    public AudioClip GravityFlipSoundEffect;
     System.Random rnd = new System.Random();
 
     void Start()
@@ -26,6 +27,7 @@ public class ConsoleMenu : Menu
 
     public void FlipGravity()
     {
+        gameObject.GetComponent<SFXPlayer>().PlaySFX(GravityFlipSoundEffect);
         CenterConsole.FlipGravity();
         MenuManager.CloseMenu(this);
     }

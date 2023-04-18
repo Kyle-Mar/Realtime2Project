@@ -23,7 +23,7 @@ public class SFXPlayer : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         GameObject SFXObject = new GameObject("SoundEffect");
-        Play(SFXObject, clip);
+        Play(SFXObject, clip, 0f);
     }
 
     //spatial override
@@ -31,25 +31,21 @@ public class SFXPlayer : MonoBehaviour
     {
         GameObject SFXObject = new GameObject("SoundEffect");
         SFXObject.transform.position = position;
-        Play(SFXObject, clip);
+        Play(SFXObject, clip, 1.0f);
 
     }
 
-    private void Play(GameObject SFXObject, AudioClip clip)
+    private void Play(GameObject SFXObject, AudioClip clip, float spatialBlend)
     {
         AudioSource source = SFXObject.AddComponent<AudioSource>();
         //source.outputAudioMixerGroup = mixerGroup;
         source.clip = clip;
-        source.spatialBlend = 1.0f;
+        source.spatialBlend = spatialBlend;
         //source.volume = PlayerPrefs.GetFloat("EffectsVolume");
         //source.pitch = Random.Range(0.75f, 1.0f);
         source.Play();
-        StartCoroutine(DestroyAfterClipLength(clip.length, SFXObject));
-    }
+        //StartCoroutine(DestroyAfterClipLength(clip.length, SFXObject));
+        Destroy(SFXObject, clip.length);
 
-    IEnumerator DestroyAfterClipLength(float length, GameObject SFXObject)
-    {
-        yield return new WaitForSeconds(length);
-        Destroy(SFXObject);
     }
 }
