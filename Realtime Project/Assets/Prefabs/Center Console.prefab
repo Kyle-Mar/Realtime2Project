@@ -126,6 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b34db77458daa64ca774ba3a7b481bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageCooldown: 2.5
+  canTakeDamage: 1
   ConsoleDamageSoundEffect: {fileID: 8300000, guid: 37bb4436d53c86e40b432c98b3953dff, type: 3}
 --- !u!114 &692910171940627689
 MonoBehaviour:

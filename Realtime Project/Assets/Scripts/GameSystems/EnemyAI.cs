@@ -25,7 +25,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     public AudioClip SlimeHitClip;
 
-    public const float STRENGTH = 0.5f;
+    public const float STRENGTH = 10f;
     IDamageable playerDamageScript;
 
     void Start()
