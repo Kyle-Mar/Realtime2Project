@@ -67,20 +67,33 @@ public class ConsoleMenu : Menu
         return availableShopItems[randIndex];
     }
 
-    public void PurchaseItem(Slot slot)
+    public void PurchaseItem(Slot slotToBuy)
     {
-        if (!slot.available)
+        if (!slotToBuy.available)
         {
             return;
         }
 
-        var trapItem = availableShopItems.Where(x => x.itemName == slot.text.text).FirstOrDefault();
+        var trapItem = availableShopItems.Where(x => x.itemName == slotToBuy.text.text).FirstOrDefault();
         if (PlayerInventory.numCoins >= trapItem.cost)
         {
             if (playerInventory.AddItem(trapItem)) {
-                slot.available = false;
+                slotToBuy.available = false;
                 PlayerInventory.numCoins -= trapItem.cost;
             }
-        } 
+        }
+
+        bool availableSlotsLeft = false;
+        foreach (Slot slot in slots) {
+            if (slot.available)
+            {
+                availableSlotsLeft = true;
+            }
+        }
+        
+        if (!availableSlotsLeft)
+        {
+            NewItemsForSlots();
+        }
     }
 }
