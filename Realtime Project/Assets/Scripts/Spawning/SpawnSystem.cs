@@ -35,7 +35,7 @@ public class SpawnSystem : MonoBehaviour
             if (!activeWave)
             {
                 // Beginning of New Wave
-                if (Input.GetKeyDown("0"))
+                //if (Input.GetKeyDown("0"))
                 {
                     waveCount++;
                     HUD_text_script.updateWaveCount();
