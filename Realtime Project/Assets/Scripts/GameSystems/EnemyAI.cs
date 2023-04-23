@@ -117,7 +117,6 @@ public class EnemyAI : MonoBehaviour, IDamageable
     {
         health -= amount;
         gameObject.GetComponent<SFXPlayer>().PlaySFX(SlimeHitClip, gameObject.transform.position);
-        Debug.Log("Health = " + (health + amount) + " - - damage = " + amount + " - - new = " + health);
         if (health <= 0)
         {
             Vector3 spawnPos = new Vector3(transform.position.x,
