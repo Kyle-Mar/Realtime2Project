@@ -45,12 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(Vector2 input)
     {
-        
-        if (MenuManager.ActiveMenu != null) {
-            return;
-        }
-
-
         Vector3 moveVector = Vector3.zero;
         
         moveVector += input[0] * PlayerBody.transform.right;
