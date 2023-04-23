@@ -91,9 +91,13 @@ public class MenuManager :MonoBehaviour
         activeMenu = null;
     }
 
+    void Start()
+    {
+        Init();
+    }
+
     private void Update()
     {
-        //Debug.Log(activeMenu);
         #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Tab))
         #else
