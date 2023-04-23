@@ -53,11 +53,10 @@ public class TrapBehavior : MonoBehaviour
                 break;
 
             case trapType.Signal:
-                setDamageTimer = 100f;
+                setDamageTimer = 0.5f;
                 damage = 0f;
                 damageLine = null;
-                enemyManager.GetComponent<EnemyManager>().AddTower(gameObject);
-
+                //enemyManager.GetComponent<EnemyManager>().AddTower(gameObject);
                 break;
         }
         maxDamageDealt = damage * 15.0f;
@@ -104,6 +103,23 @@ public class TrapBehavior : MonoBehaviour
 
             }
         }
+
+        else if(trapVariant == trapType.Signal)
+        {
+            if (damageTimer < 0)
+            {
+                damageTimer = setDamageTimer;
+                Debug.Log("TEST SIGNAL");
+                if (other.gameObject.CompareTag("Enemy"))
+                {
+                    Vector3 pullingTowardsVector = transform.position - other.transform.position;
+                    pullingTowardsVector.y = 0;
+                    other.gameObject.GetComponent<Rigidbody>().velocity = (pullingTowardsVector);
+                }
+            }
+        }
+
+
         // Traps without lasers
         else
         {

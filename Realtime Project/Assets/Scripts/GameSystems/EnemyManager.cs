@@ -25,8 +25,12 @@ public class EnemyManager : MonoBehaviour
                     if (Vector3.Distance(tower.transform.position, slime.transform.position) < 10)
                     {
                         EnemyAI slimeScript = slime.GetComponent<EnemyAI>();
-                        slimeScript.pointOfFocus = tower;
-                        Debug.Log("Locked ON!");
+                        //slimeScript.pointOfFocus = tower;
+                    }
+                    else
+                    {
+                        EnemyAI slimeScript = slime.GetComponent<EnemyAI>();
+                        //slimeScript.pointOfFocus = null;
                     }
                 }
             }

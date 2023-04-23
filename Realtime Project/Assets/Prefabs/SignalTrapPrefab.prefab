@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838000995711797633}
   - component: {fileID: 620711557097103064}
+  - component: {fileID: 5275093441406110554}
   m_Layer: 0
   m_Name: SignalTrapPrefab
   m_TagString: Untagged
@@ -48,7 +49,21 @@ MonoBehaviour:
   trapVariant: 3
   enemyManager: {fileID: 0}
   hurtbox: {fileID: 0}
-  setDamageTimer: 5
+  setDamageTimer: 0
+  damageDealt: 0
+--- !u!135 &5275093441406110554
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66144264482132795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9036250808223558626
 GameObject:
   m_ObjectHideFlags: 0
