@@ -18,6 +18,7 @@ public class PlayerInputController : MonoBehaviour
     [Range(1,10f)]
     public static float CurrentSensitivity = 1;
     float AttackingSensitivity;
+    SpawnSystem spawnSystem;
 
     // Start is called before the first frame update
     void Awake()
@@ -26,6 +27,7 @@ public class PlayerInputController : MonoBehaviour
         Movement = GetComponent<PlayerMovement>();
         Interact = GetComponent<PlayerInteract>();
         UpdateSensitivity(MouseSensitivity);
+        spawnSystem = GameObject.Find("SpawnRanges").GetComponent<SpawnSystem>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,11 @@ public class PlayerInputController : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 Interact.Interact();
+            }
+
+            if (Input.GetKeyDown("space"))
+            {
+                spawnSystem.startWaveInput();
             }
         }
 

@@ -29,7 +29,7 @@ public class MenuManager :MonoBehaviour
         {
             if (pauseMenu != null)
             {
-                Init();
+                Init(); 
             }
             return pauseMenu;
         }
@@ -62,6 +62,11 @@ public class MenuManager :MonoBehaviour
             CloseMenu(activeMenu);
         }
 
+        if (menu == null)
+        {
+            Init();
+        }
+
         if(activeMenu == null)
         {
             Init();
@@ -69,6 +74,7 @@ public class MenuManager :MonoBehaviour
         
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Debug.Log(menu);
         menu.IsActive = true;
         activeMenu = menu;
         activeMenu.menuObject.SetActive(true);
