@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SpawnSystem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SpawnSystem : MonoBehaviour
     GameObject HUD;
     HUD_Text HUD_text_script;
     Image timerImage;
+    GameObject waveStartPromptText;
 
     private void Start()
     {
@@ -22,6 +24,9 @@ public class SpawnSystem : MonoBehaviour
         HUD = GameObject.Find("HUD");
         HUD_text_script = HUD.GetComponent<HUD_Text>();
         timerImage = GameObject.Find("Timer").GetComponent<Image>();
+        waveStartPromptText = GameObject.Find("WaveStartPromptText");
+        waveStartPromptText.SetActive(false);
+        startWave();
     }
 
 
@@ -29,31 +34,9 @@ public class SpawnSystem : MonoBehaviour
     {
         waveTimer += Time.deltaTime;
 
-        if (waveTimer >= setWaveTimer)
+        if (activeWave && (waveTimer >= setWaveTimer))
         {
-
-            if (!activeWave)
-            {
-                // Beginning of New Wave
-                waveCount++;
-                HUD_text_script.updateWaveCount();
-
-                activeWave = true;
-                foreach(EnemySpawnRange child in children)
-                {
-                    child.UnpauseSpawners();
-                    child.SpawnSpawners(numToSpawn);
-                }
-            }
-            else
-            {
-                activeWave = false;
-                foreach(EnemySpawnRange child in children)
-                {
-                    child.PauseSpawners();
-                }
-            }
-            waveTimer = 0.0f;
+            endWave();
         }
 
         //Cory Timer HUD stuff down here
@@ -67,5 +50,41 @@ public class SpawnSystem : MonoBehaviour
             timerImage.fillAmount = amount;
         }
 
+    }
+
+    void startWave()
+    {
+        // Beginning of New Wave
+        waveCount++;
+        HUD_text_script.updateWaveCount();
+
+        activeWave = true;
+        foreach (EnemySpawnRange child in children)
+        {
+            child.UnpauseSpawners();
+            child.SpawnSpawners(numToSpawn);
+        }
+        waveTimer = 0.0f;
+        activeWave = true;
+        waveStartPromptText.SetActive(false);
+    }
+
+
+    void endWave()
+    {
+        foreach (EnemySpawnRange child in children)
+        {
+            child.PauseSpawners();
+        }
+        activeWave = false;
+        waveStartPromptText.SetActive(true);
+    }
+
+    public void startWaveInput()
+    {
+        if(!activeWave)
+        {
+            startWave();
+        }
     }
 }

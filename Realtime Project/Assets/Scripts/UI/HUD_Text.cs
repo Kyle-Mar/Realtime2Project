@@ -10,11 +10,13 @@ public class HUD_Text : MonoBehaviour
     TextMeshProUGUI waveText;
     private void Start()
     {
-        spawnScript = GameObject.Find("SpawnRanges").GetComponent<SpawnSystem>();
-        waveText = GameObject.Find("Wave Text").GetComponent<TextMeshProUGUI>();
     }
     public void updateWaveCount()
     {
+        spawnScript = GameObject.Find("SpawnRanges").GetComponent<SpawnSystem>();
+        waveText = GameObject.Find("Wave Text").GetComponent<TextMeshProUGUI>();
+        Debug.Log(waveText.text);
+        Debug.Log(spawnScript.waveCount);
         waveText.text = "Wave " + spawnScript.waveCount;
     }
 }

@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     const int MAX_ITEMS = 3;
 
     [SerializeField]
-    private static float startCoins = 9999;
+    private static float startCoins = 50;
     public static float numCoins;
     public TMP_Text coinsText;
 

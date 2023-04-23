@@ -110,9 +110,9 @@ public class TrapPlacement : MonoBehaviour
         }
     }
 
-    void EvaluateRay(RaycastHit hitData)
-    {
-        //
-    }
+    //void EvaluateRay(RaycastHit hitData)
+    //{
+    //    //
+    //}
 
 }
