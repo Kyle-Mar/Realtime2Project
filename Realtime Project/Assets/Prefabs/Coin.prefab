@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4587268884398354608}
   - component: {fileID: 4587268884398354609}
   - component: {fileID: 4587268884398354606}
+  - component: {fileID: 8877854985858954547}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -62,6 +63,19 @@ MonoBehaviour:
   RotationSpeed: 10
   HoverSpeed: 5
   HoverHeight: 0.1
+  PickupSoundEffect: {fileID: 8300000, guid: 9fdf1c963741ec64685d1cce35c0248e, type: 3}
+--- !u!114 &8877854985858954547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3810766643529017866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54984f5f3dc2c3b4a9a9edbe42caded4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5291549182737715923
 GameObject:
   m_ObjectHideFlags: 0

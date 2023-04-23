@@ -9,11 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7585094561906929310}
-  - component: {fileID: -355584643589275974}
   - component: {fileID: 4080214934778794011}
+  - component: {fileID: 9064266810076047596}
+  - component: {fileID: 7611668556774701005}
+  - component: {fileID: 260024039963786577}
   m_Layer: 0
   m_Name: SpikesTrapPrefab
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,22 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-355584643589275974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7064032344713589796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e17a4440ed5f84abb72e93c4b368a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapVariant: 2
-  hurtbox: {fileID: 0}
-  damage: 10
-  setDamageTimer: 5
 --- !u!65 &4080214934778794011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62,7 +48,51 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 2, z: 3}
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Center: {x: 0, y: 0.02, z: 0}
+--- !u!114 &9064266810076047596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064032344713589796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9f94296d063af4ebf1425ab1993b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapVariant: 2
+  enemyManager: {fileID: 0}
+  tile: {fileID: 0}
+  setDamageTimer: 5
+  damageDealt: 0
+--- !u!65 &7611668556774701005
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064032344713589796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.03, y: 0.02, z: 1.93}
+  m_Center: {x: 0, y: -0.81, z: 0}
+--- !u!114 &260024039963786577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064032344713589796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f30be6e7781fa49b7f572dfcbe84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCooldown: 1
+  canTakeDamage: 1
 --- !u!1001 &793212620814389601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -117,6 +147,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
       propertyPath: m_Name
       value: Spikes_Progress_Textured
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b5bfc339394bb4439540b143058476d, type: 3}

@@ -14,8 +14,8 @@ public class TrapBehavior : MonoBehaviour
 
     public trapType trapVariant;
     public GameObject enemyManager;
-    public GameObject hurtbox;
     private float damage = 50.0f;
+    public TileScript tile;
 
     public float setDamageTimer = 5.0f;
     private float damageTimer;
@@ -82,8 +82,14 @@ public class TrapBehavior : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("HELLO");
+    }
+
     private void OnTriggerStay(Collider other)
     {
+
         // Traps with lasers
         if (trapVariant == trapType.Tesla || trapVariant == trapType.Laser)
         {
@@ -104,7 +110,7 @@ public class TrapBehavior : MonoBehaviour
             }
         }
 
-        else if(trapVariant == trapType.Signal)
+        else if (trapVariant == trapType.Signal)
         {
             if (damageTimer < 0)
             {
@@ -134,7 +140,7 @@ public class TrapBehavior : MonoBehaviour
 
             }
         }
-        
+
     }
 
     private void SetDamageLine()

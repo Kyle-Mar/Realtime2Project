@@ -9,11 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838000995711797633}
-  - component: {fileID: 620711557097103064}
-  - component: {fileID: 5275093441406110554}
+  - component: {fileID: 1991628060434283757}
+  - component: {fileID: 5881169064459396078}
+  - component: {fileID: 6884489259957547422}
+  - component: {fileID: 3256124461780192486}
   m_Layer: 0
   m_Name: SignalTrapPrefab
-  m_TagString: Untagged
+  m_TagString: Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,14 +29,28 @@ Transform:
   m_GameObject: {fileID: 66144264482132795}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 275028838543423705}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &620711557097103064
+--- !u!64 &1991628060434283757
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66144264482132795}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 8bd417906fc86674ab4df31a74a82008, type: 3}
+--- !u!114 &5881169064459396078
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +59,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 66144264482132795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0e17a4440ed5f84abb72e93c4b368a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 96f30be6e7781fa49b7f572dfcbe84ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCooldown: 1
+  canTakeDamage: 1
+--- !u!114 &6884489259957547422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66144264482132795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9f94296d063af4ebf1425ab1993b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trapVariant: 3
   enemyManager: {fileID: 0}
-  hurtbox: {fileID: 0}
-  setDamageTimer: 0
+  tile: {fileID: 0}
+  setDamageTimer: 5
   damageDealt: 0
---- !u!135 &5275093441406110554
+--- !u!135 &3256124461780192486
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9036250808223558626}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -1.5, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
