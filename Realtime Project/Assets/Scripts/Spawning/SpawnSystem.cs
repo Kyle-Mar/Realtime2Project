@@ -25,8 +25,9 @@ public class SpawnSystem : MonoBehaviour
         HUD_text_script = HUD.GetComponent<HUD_Text>();
         timerImage = GameObject.Find("Timer").GetComponent<Image>();
         waveStartPromptText = GameObject.Find("WaveStartPromptText");
-        waveStartPromptText.SetActive(false);
-        startWave();
+        timerImage.fillAmount = 0;
+        waveStartPromptText.SetActive(true);
+        //startWave();
     }
 
 
