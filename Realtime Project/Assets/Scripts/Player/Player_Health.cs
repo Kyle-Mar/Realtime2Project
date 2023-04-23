@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player_Health : Health, IDamageable
 {
-
     public override void Die()
     {
         Physics.gravity = new Vector3(0, -9.8f);

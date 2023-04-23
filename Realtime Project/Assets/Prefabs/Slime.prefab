@@ -500,8 +500,6 @@ MonoBehaviour:
   player: {fileID: 0}
   controlPanel: {fileID: 0}
   coin: {fileID: 3810766643529017866, guid: f70125ef7b0a9f14a8885e2bddc8e633, type: 3}
-  pointOfFocus: {fileID: 0}
-  enemyManager: {fileID: 0}
   SlimeHitClip: {fileID: 8300000, guid: a05888e94d67d5d449a76add888f4e23, type: 3}
 --- !u!114 &2405868576764989057
 MonoBehaviour:

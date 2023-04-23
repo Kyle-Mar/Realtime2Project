@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawnRange : MonoBehaviour
 {
     public GameObject corner;
-    public GameObject enemyManager;
     public GameObject enemy;
     public GameObject blueEnemy;
     public GameObject spawnerPrefab;
@@ -117,7 +116,6 @@ public class EnemySpawnRange : MonoBehaviour
             int randSpawner = Random.Range(0, spawnerCol.Count - 1);
             Vector3 spawnerPos = spawnerCol[randSpawner];
             GameObject newSpawner = Instantiate(spawnerPrefab, spawnerPos, transform.rotation);
-            newSpawner.GetComponent<Spawner>().enemyManager = enemyManager;
 
             // Set enemy to spawn
             int randEnemy = Random.Range(1, 5);

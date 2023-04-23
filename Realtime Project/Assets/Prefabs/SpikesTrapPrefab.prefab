@@ -48,7 +48,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3, y: 2, z: 3}
-  m_Center: {x: 0, y: 0.02, z: 0}
+  m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &9064266810076047596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trapVariant: 2
-  enemyManager: {fileID: 0}
   tile: {fileID: 0}
   setDamageTimer: 5
-  damageDealt: 0
 --- !u!65 &7611668556774701005
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -78,7 +76,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.03, y: 0.02, z: 1.93}
-  m_Center: {x: 0, y: -0.81, z: 0}
+  m_Center: {x: 0, y: -1.9075733, z: 0}
 --- !u!114 &260024039963786577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,8 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f30be6e7781fa49b7f572dfcbe84ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageCooldown: 1
-  canTakeDamage: 1
 --- !u!1001 &793212620814389601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,14 +143,6 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
       propertyPath: m_Name
       value: Spikes_Progress_Textured
-      objectReference: {fileID: 0}
-    - target: {fileID: 1151388028547126963, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1151388028547126963, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b5bfc339394bb4439540b143058476d, type: 3}
