@@ -16,7 +16,7 @@ public class MenuManager :MonoBehaviour
 
     public static ConsoleMenu ConsoleMenu { get
         {
-            if (!isInitialized)
+            if (consoleMenu != null)
             {
                 Init();
             }
@@ -27,7 +27,7 @@ public class MenuManager :MonoBehaviour
     {
         get
         {
-            if (!isInitialized)
+            if (pauseMenu != null)
             {
                 Init();
             }
@@ -38,7 +38,7 @@ public class MenuManager :MonoBehaviour
     {
         get
         {
-            if (!isInitialized)
+            if (activeMenu != null)
             {
                 Init();
             }
@@ -83,6 +83,11 @@ public class MenuManager :MonoBehaviour
         menu.menuObject.SetActive(false);
         menu.OnClose();
         activeMenu = null;
+    }
+
+    void Start()
+    {
+        Init();
     }
 
     private void Update()
