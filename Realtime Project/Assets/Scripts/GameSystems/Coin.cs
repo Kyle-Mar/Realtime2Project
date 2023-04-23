@@ -11,6 +11,9 @@ public class Coin : MonoBehaviour
     public float HoverSpeed = 10f;
     [Range(0.1f, 10f)]
     public float HoverHeight = 10f;
+
+    public AudioClip PickupSoundEffect;
+
     private Vector3 StartPosition;
     private GameObject playerObject;
     // Start is called before the first frame update
@@ -36,6 +39,9 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameObject.GetComponent<SFXPlayer>().PlaySFX(PickupSoundEffect, transform.position);
+
+
             PlayerInventory.numCoins++;
             Destroy(gameObject);
         }

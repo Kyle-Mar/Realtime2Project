@@ -23,7 +23,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public float MAX_HEALTH { get; } = 100f;
     public float health { get; set; }
 
-    public const float STRENGTH = 0.5f;
+    public AudioClip SlimeHitClip;
+
+    public const float STRENGTH = 10f;
     IDamageable playerDamageScript;
 
     void Start()
@@ -114,7 +116,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
     public void Damage(float amount)
     {
         health -= amount;
-        //Debug.Log("Health = " + (health + amount) + " - - damage = " + amount + " - - new = " + health);
+        gameObject.GetComponent<SFXPlayer>().PlaySFX(SlimeHitClip, gameObject.transform.position);
         if (health <= 0)
         {
             Vector3 spawnPos = new Vector3(transform.position.x,
@@ -122,8 +124,13 @@ public class EnemyAI : MonoBehaviour, IDamageable
                                                                                                           //The enemies position is at the bottom of the enemy. This is a dirty fix.
                                            transform.position.z);
             Instantiate(coin, spawnPos, Quaternion.identity);
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 
     void OnCollisionStay(Collision other)
@@ -134,6 +141,11 @@ public class EnemyAI : MonoBehaviour, IDamageable
         }
         else if (other.gameObject.CompareTag("Terminal"))
         {
+            other.gameObject.GetComponent<IDamageable>().Damage(STRENGTH);
+        }
+        else if (other.gameObject.CompareTag("Trap"))
+        {
+            Debug.Log("Damaging Trap");
             other.gameObject.GetComponent<IDamageable>().Damage(STRENGTH);
         }
     }

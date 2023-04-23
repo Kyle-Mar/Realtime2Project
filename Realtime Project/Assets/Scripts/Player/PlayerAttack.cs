@@ -38,34 +38,36 @@ public class PlayerAttack : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Terminal"))
+        if (other.gameObject.CompareTag("Terminal") || other.gameObject.CompareTag("Trap"))
         {
             return;
         }
-        other.gameObject.GetComponent<IDamageable>()?.Damage(AttackDamage);
-        if (other.gameObject.CompareTag("Enemy"))
+
+        if (HurtBox.enabled)
         {
-            
-            
-            Vector3 knockbackVector = camera.transform.forward;
-
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            rb.AddForce(new Vector3(knockbackVector.x, 0, knockbackVector.z).normalized  * KnockbackStrength);
-
-            print(Physics.gravity.y);
-             
-            float vertForce;
-            if (Physics.gravity.y < 0)
+            if (other.gameObject.CompareTag("Enemy"))
             {
-                vertForce = KnockbackUpward;
-            }
-            else
-            {
-                vertForce = -KnockbackUpward;
+                Vector3 knockbackVector = camera.transform.forward;
+
+                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(new Vector3(knockbackVector.x, 0, knockbackVector.z).normalized  * KnockbackStrength);
+
+                print(Physics.gravity.y);
+                
+                float vertForce;
+                if (Physics.gravity.y < 0)
+                {
+                    vertForce = KnockbackUpward;
+                }
+                else
+                {
+                    vertForce = -KnockbackUpward;
+                }
+
+                rb.AddForce(Vector3.up * vertForce);
             }
 
-            rb.AddForce(Vector3.up * vertForce);
-
+            other.gameObject.GetComponent<IDamageable>()?.Damage(AttackDamage);
         }
     }
 

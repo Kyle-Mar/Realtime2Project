@@ -198,6 +198,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1329999808958921913, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377455780507547989, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
+      propertyPath: damageCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d95d3af4f9352164ebb6cf13b3fca3d4, type: 3}
 --- !u!1 &1151715 stripped
@@ -1708,7 +1716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4023215848608658, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.351768
+      value: -21.46
       objectReference: {fileID: 0}
     - target: {fileID: 4023215848608658, guid: 55776efecb0cd134ea5f418c2f97a705, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2169,6 +2177,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 1151716}
+    - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
+      propertyPath: GravityFlipSoundEffect
+      value: 
+      objectReference: {fileID: 8300000, guid: 65dfaf1e2faa4e044b5a081b44e61cc4, type: 3}
     - target: {fileID: 642051545, guid: f3d78312d80e0c749b59ba800a40ded8, type: 3}
       propertyPath: availableShopItems.Array.size
       value: 4
@@ -6999,6 +7011,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8583744c6a7427b43953d825fed633e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1806692280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806692274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54984f5f3dc2c3b4a9a9edbe42caded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1821976596 stripped

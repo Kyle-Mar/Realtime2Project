@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 935502079793676937}
   - component: {fileID: 8978325699475118147}
   - component: {fileID: 433319781949858203}
+  - component: {fileID: 2405868576764989057}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -499,6 +500,19 @@ MonoBehaviour:
   player: {fileID: 0}
   controlPanel: {fileID: 0}
   coin: {fileID: 3810766643529017866, guid: f70125ef7b0a9f14a8885e2bddc8e633, type: 3}
+  SlimeHitClip: {fileID: 8300000, guid: a05888e94d67d5d449a76add888f4e23, type: 3}
+--- !u!114 &2405868576764989057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919012471076396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54984f5f3dc2c3b4a9a9edbe42caded4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1989916952965676
 GameObject:
   m_ObjectHideFlags: 0
