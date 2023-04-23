@@ -44,6 +44,7 @@ public class CenterConsole : MonoBehaviour, IInteractable
         MenuManager.OpenMenu(MenuManager.ConsoleMenu);
     }
 
+    // this should be moved to the console menu script but, time crunch lol.
     public static void FlipGravity()
     {
         Physics.gravity *= -1;

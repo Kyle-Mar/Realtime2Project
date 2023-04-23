@@ -13,8 +13,9 @@ public class TrapBehavior : MonoBehaviour
     }
 
     public trapType trapVariant;
-    public GameObject hurtbox;
+    //public GameObject hurtbox;
     private float damage = 50.0f;
+    public TileScript tile;
 
     public float setDamageTimer = 5.0f;
     private float damageTimer;
@@ -50,8 +51,14 @@ public class TrapBehavior : MonoBehaviour
         damageTimer -= Time.deltaTime;
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("HELLO");
+    }
+
     private void OnTriggerStay(Collider other)
     {
+        //Debug.Log("TRIGGER");
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (damageTimer < 0)
