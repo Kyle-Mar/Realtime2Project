@@ -21,6 +21,10 @@ public class TrapBehavior : MonoBehaviour
     private float damageTimer;
 
     private LineRenderer damageLine;
+    private float damageLineRemainTimer = 0.0f;
+
+    public float damageDealt = 0.0f;
+    private float maxDamageDealt = 1400.0f;
 
 
     void Start()
@@ -45,22 +49,38 @@ public class TrapBehavior : MonoBehaviour
             case trapType.Spike:
                 setDamageTimer = 1.5f;
                 damage = 70.0f;
+                damageLine = null;
                 break;
 
             case trapType.Signal:
                 setDamageTimer = 100f;
                 damage = 0f;
-
+                damageLine = null;
                 enemyManager.GetComponent<EnemyManager>().AddTower(gameObject);
 
                 break;
         }
+        maxDamageDealt = damage * 15.0f;
     }
 
     void Update()
     {
         // Deal damage
         damageTimer -= Time.deltaTime;
+
+        if (damageLine != null)
+        {
+            if (damageLineRemainTimer > 0)
+            {
+                damageLineRemainTimer -= Time.deltaTime;
+            }
+            else
+            {
+
+                damageLine.enabled = false;
+            }
+        }
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -68,7 +88,7 @@ public class TrapBehavior : MonoBehaviour
         // Traps with lasers
         if (trapVariant == trapType.Tesla || trapVariant == trapType.Laser)
         {
-            damageLine.enabled = false;
+            //damageLine.enabled = false;
             if (other.gameObject.CompareTag("Enemy"))
             {
                 damageLine.enabled = true;
@@ -76,8 +96,10 @@ public class TrapBehavior : MonoBehaviour
                 {
                     damageTimer = setDamageTimer;
                     damageLine.SetPosition(1, other.transform.position);
+                    damageLineRemainTimer = 0.5f;
                     //Debug.Log("Dealing Damage");
                     other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+                    damageDealt += damage;
                 }
 
             }
@@ -91,6 +113,7 @@ public class TrapBehavior : MonoBehaviour
                 {
                     damageTimer = setDamageTimer;
                     other.gameObject.GetComponent<IDamageable>()?.Damage(damage);
+                    damageDealt += damage;
                 }
 
             }
