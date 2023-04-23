@@ -20,6 +20,9 @@ public class EnemyAI : MonoBehaviour, IDamageable
     private bool isAggro = false;
     private bool isBlue = false;
 
+    public GameObject pointOfFocus = null;
+    public GameObject enemyManager;
+
     public float MAX_HEALTH { get; } = 100f;
     public float health { get; set; }
 
@@ -49,6 +52,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
         {
             isBlue = true;
         }
+
+        enemyManager.GetComponent<EnemyManager>().slimeList.Add(gameObject);
     }
 
     void Update()
@@ -77,6 +82,12 @@ public class EnemyAI : MonoBehaviour, IDamageable
 
     void Look()
     {
+        // Look at the Tower, please
+        if (pointOfFocus != null)
+        {
+            moveTarget = pointOfFocus;
+        }
+
         targetPosition = new Vector3(
             moveTarget.transform.position.x,
             transform.position.y,
@@ -90,6 +101,8 @@ public class EnemyAI : MonoBehaviour, IDamageable
         {
             transform.LookAt(targetPosition, Vector3.up * -Mathf.Sign(Physics.gravity.y));
         }
+
+        
     }
 
     void Move()
@@ -119,6 +132,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         gameObject.GetComponent<SFXPlayer>().PlaySFX(SlimeHitClip, gameObject.transform.position);
         if (health <= 0)
         {
+            enemyManager.GetComponent<EnemyManager>().RemoveSlime(gameObject);
             Vector3 spawnPos = new Vector3(transform.position.x,
                                            transform.position.y + 0.75f * Mathf.Sign(-Physics.gravity.y), //add or subtract based on the gravity to avoid spawning the coins in the ground
                                                                                                           //The enemies position is at the bottom of the enemy. This is a dirty fix.

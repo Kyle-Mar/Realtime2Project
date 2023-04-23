@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrapPlacement : MonoBehaviour
 {
+    public GameObject EnemyManager;
     public GameObject PlayerBody;
     public GameObject PlayerCamera;
 
@@ -38,11 +39,6 @@ public class TrapPlacement : MonoBehaviour
         TrapBehavior trapBehavior = spawnedTrap.GetComponent<TrapBehavior>();
         trapBehavior.tile = tileScript;
         tileScript.isFree = false;
-    }
-
-    void EvaluateRay(RaycastHit hitData)
-    {
-        //
     }
 
     void CastRays()
@@ -104,6 +100,14 @@ public class TrapPlacement : MonoBehaviour
                     if (itemAndSuccess.Success)
                     {
                         CreateTrap(itemAndSuccess.Item.obj, trapLocation, tileScript);
+                    }
+                }
+                else if (Input.GetKeyDown("4"))
+                {
+                    //RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(2);
+                    //if (itemAndSuccess.Success)
+                    {
+                        CreateTrap(SignalTrap, trapLocation, tileScript);
                     }
                 }
             }
