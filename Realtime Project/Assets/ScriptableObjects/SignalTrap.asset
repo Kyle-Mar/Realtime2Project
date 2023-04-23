@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Signal Trap
   cost: 10
-  image: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
+  image: {fileID: 21300000, guid: 9edef1d468e99fc489eecd4baa397598, type: 3}
   obj: {fileID: 66144264482132795, guid: 185c0978ceb8ebc4b82b8c3674f95e50, type: 3}
