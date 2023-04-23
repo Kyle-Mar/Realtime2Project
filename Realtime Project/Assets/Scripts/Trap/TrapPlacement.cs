@@ -102,14 +102,6 @@ public class TrapPlacement : MonoBehaviour
                         CreateTrap(itemAndSuccess.Item.obj, trapLocation, tileScript);
                     }
                 }
-                else if (Input.GetKeyDown("4"))
-                {
-                    //RemoveItemResult itemAndSuccess = playerInventory.RemoveItem(2);
-                    //if (itemAndSuccess.Success)
-                    {
-                        CreateTrap(SignalTrap, trapLocation, tileScript);
-                    }
-                }
             }
         }
     }
