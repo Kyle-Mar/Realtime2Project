@@ -8,6 +8,7 @@ public class ConsoleMenu : Menu
 {
     // Start is called before the first frame update
     public PlayerInventory playerInventory;
+    bool isFirstOpen = true;
     public Slot[] slots;
     public int rerollCost = 15;
     public TrapItem[] availableShopItems = new TrapItem[3];
@@ -48,8 +49,11 @@ public class ConsoleMenu : Menu
 
     public override void OnOpen()
     {
-        NewItemsForSlots();
-
+        if (isFirstOpen)
+        {
+            isFirstOpen = false;
+            NewItemsForSlots();
+        }
     }
 
     private void NewItemsForSlots() 

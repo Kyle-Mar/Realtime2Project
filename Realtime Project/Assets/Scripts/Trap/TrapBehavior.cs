@@ -47,7 +47,7 @@ public class TrapBehavior : MonoBehaviour
                 break;
 
             case trapType.Spike:
-                setDamageTimer = 1.5f;
+                setDamageTimer = 1.0f;
                 damage = 70.0f;
                 damageLine = null;
                 break;

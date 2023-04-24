@@ -88,7 +88,7 @@ MonoBehaviour:
   Cam: {fileID: 1329999808958921912}
   Attack: {fileID: 1200535681620285068}
   PlayerBody: {fileID: 1329999809735717554}
-  MoveSpeed: 5.91
+  MoveSpeed: 7
 --- !u!114 &1329999808627016116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca833b630b67ee42a945449a8ba5fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyManager: {fileID: 0}
   PlayerBody: {fileID: 1329999809735717554}
   PlayerCamera: {fileID: 1329999808958921912}
   TeslaTrap: {fileID: 2205845279299202195, guid: 59bce346133ecd04694ee7cb6122963d, type: 3}

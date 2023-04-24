@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a7d3dbe1b77a04580ea2f37563be90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   aggroRange: 8
   player: {fileID: 0}
   controlPanel: {fileID: 0}
