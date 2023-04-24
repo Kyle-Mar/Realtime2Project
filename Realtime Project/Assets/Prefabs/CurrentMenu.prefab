@@ -797,6 +797,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  cost: 0
+  available: 1
 --- !u!1 &1246594069
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1084,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  cost: 0
+  available: 1
 --- !u!1 &1635560032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,6 +1506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 0}
   text: {fileID: 0}
+  cost: 0
+  available: 1
 --- !u!1 &1983374026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,10 +1858,12 @@ MonoBehaviour:
   menuObject: {fileID: 896225601}
   playerInventory: {fileID: 0}
   slots: []
+  rerollCost: 15
   availableShopItems:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  GravityFlipSoundEffect: {fileID: 0}
 --- !u!1 &2392820805307074217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +2323,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 78845581326340958}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Unpause
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
