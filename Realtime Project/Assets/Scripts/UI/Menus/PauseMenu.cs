@@ -37,4 +37,10 @@ public class PauseMenu : Menu
     {
         Time.timeScale = 1;
     }
+
+    public void Resume()
+    {
+        Unpause();
+        MenuManager.CloseMenu(this);
+    }
 }
