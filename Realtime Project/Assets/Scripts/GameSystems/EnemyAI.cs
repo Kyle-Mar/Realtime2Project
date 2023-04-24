@@ -132,7 +132,7 @@ public class EnemyAI : MonoBehaviour, IDamageable
         gameObject.GetComponent<SFXPlayer>().PlaySFX(SlimeHitClip, gameObject.transform.position);
         if (health <= 0)
         {
-            enemyManager.GetComponent<EnemyManager>().RemoveSlime(gameObject);
+            //enemyManager.GetComponent<EnemyManager>().RemoveSlime(gameObject);
             Vector3 spawnPos = new Vector3(transform.position.x,
                                            transform.position.y + 0.75f * Mathf.Sign(-Physics.gravity.y), //add or subtract based on the gravity to avoid spawning the coins in the ground
                                                                                                           //The enemies position is at the bottom of the enemy. This is a dirty fix.

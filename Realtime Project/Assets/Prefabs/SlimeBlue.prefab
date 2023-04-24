@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 8978325699475118147}
   - component: {fileID: 433319781949858203}
   - component: {fileID: 7778899064288182525}
+  - component: {fileID: -4707392595607962148}
   m_Layer: 0
   m_Name: SlimeBlue
   m_TagString: Enemy
@@ -501,6 +502,9 @@ MonoBehaviour:
   player: {fileID: 0}
   controlPanel: {fileID: 0}
   coin: {fileID: 3810766643529017866, guid: f70125ef7b0a9f14a8885e2bddc8e633, type: 3}
+  pointOfFocus: {fileID: 0}
+  enemyManager: {fileID: 0}
+  SlimeHitClip: {fileID: 8300000, guid: a05888e94d67d5d449a76add888f4e23, type: 3}
 --- !u!114 &7778899064288182525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +515,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 447f4c5fd0bb87049a2b54ed896f2983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4707392595607962148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919012471076396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54984f5f3dc2c3b4a9a9edbe42caded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1989916952965676
