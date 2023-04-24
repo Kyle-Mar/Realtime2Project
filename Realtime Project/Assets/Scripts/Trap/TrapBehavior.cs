@@ -16,6 +16,7 @@ public class TrapBehavior : MonoBehaviour
     public GameObject enemyManager;
     private float damage = 50.0f;
     public TileScript tile;
+    public GameObject ShootPoint;
 
     public float setDamageTimer = 5.0f;
     private float damageTimer;
@@ -146,7 +147,8 @@ public class TrapBehavior : MonoBehaviour
     private void SetDamageLine()
     {
         damageLine = GetComponent<LineRenderer>();
-        damageLine.SetPosition(0, transform.position);
+
+        damageLine.SetPosition(0, ShootPoint.transform.position);
         damageLine.SetPosition(1, transform.position);
         damageLine.enabled = false;
     }
