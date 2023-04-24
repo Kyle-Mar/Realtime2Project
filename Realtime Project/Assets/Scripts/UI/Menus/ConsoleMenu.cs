@@ -78,7 +78,7 @@ public class ConsoleMenu : Menu
             return;
         }
 
-        var trapItem = availableShopItems.Where(x => x.itemName == slotToBuy.text.text).FirstOrDefault();
+        var trapItem = availableShopItems.Where(x => x.itemName == slotToBuy.text.text.Split(' ').First() + " Trap").FirstOrDefault();
         if (PlayerInventory.numCoins >= trapItem.cost)
         {
             if (playerInventory.AddItem(trapItem)) {

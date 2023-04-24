@@ -37,7 +37,7 @@ public class Slot : MonoBehaviour
 
     public void UpdateSlot(Sprite sprite, string str, float newCost)
     {
-        text.text = str;
+        text.text = str + " Cost: " + newCost.ToString();
         image.sprite = sprite;
         cost = newCost;
         available = true;

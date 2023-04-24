@@ -125,6 +125,8 @@ public class EnemySpawnRange : MonoBehaviour
             {
                 case 1:
                     newSpawner.GetComponent<Spawner>().enemy = blueEnemy;
+                    ParticleSystem.MainModule psMain = newSpawner.GetComponent<ParticleSystem>().main;
+                    psMain.startColor = new ParticleSystem.MinMaxGradient(Color.blue, Color.blue);
                     break;
                 default:
                     break;

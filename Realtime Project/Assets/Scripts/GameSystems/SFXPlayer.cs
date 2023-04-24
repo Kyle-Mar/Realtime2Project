@@ -41,7 +41,7 @@ public class SFXPlayer : MonoBehaviour
         //source.outputAudioMixerGroup = mixerGroup;
         source.clip = clip;
         source.spatialBlend = spatialBlend;
-        //source.volume = PlayerPrefs.GetFloat("EffectsVolume");
+        source.volume = 0.33f;
         //source.pitch = Random.Range(0.75f, 1.0f);
         source.Play();
         //StartCoroutine(DestroyAfterClipLength(clip.length, SFXObject));
